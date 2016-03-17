@@ -1,0 +1,35 @@
+{
+  "name": "generator-angular2project",
+  "version": "0.1.0",
+  "description": "Angular 2 project generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NablaT/angular2Generator.git"
+  },
+  "author": "Guillaume Rahbari <guillaume.rahbari@gmail.com> & Remi Pourtier <remi.pourtier@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/NablaT/angular2Generator/issues"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "angular yeoman",
+    "angular2 yeoman",
+    "angularjs",
+    "angular",
+    "angularjs2",
+    "angular2"
+  ],
+  "homepage": "https://github.com/NablaT/angular2Generator#readme",
+  "files": [
+	"app",
+	"routeur"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.22.5"
+  }
+}

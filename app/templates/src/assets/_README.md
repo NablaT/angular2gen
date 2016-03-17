@@ -1,0 +1,3 @@
+###Folder assets
+
+This folder contains all resources you need for your project. For instance images, videos, json etc...

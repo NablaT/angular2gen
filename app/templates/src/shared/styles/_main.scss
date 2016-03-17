@@ -1,0 +1,9 @@
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here node_modules/bootstrap/scss/_variables.scss
+ */
+$enable-flex : true;
+
+@import 'variables';
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';

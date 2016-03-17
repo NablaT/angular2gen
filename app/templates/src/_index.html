@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="shared/styles/main.css">
+</head>
+
+<!-- 3. Display the application -->
+<body>
+<app>Loading...</app>
+
+<!-- 1. Load libraries -->
+<!-- IE required polyfills, in this exact order -->
+<!-- shims:js -->
+<!-- endinject -->
+
+<!-- libs:js -->
+<!-- endinject -->
+
+<!-- 2. Configure SystemJS -->
+
+<script>
+    System.config({
+        defaultJSExtensions: true,
+        packages: {
+            "angular2": {
+                "defaultExtension": false
+            },
+            "rxjs": {
+                "defaultExtension": false
+            }
+        }
+    });
+    System.import('main')
+            .then(null, console.error.bind(console));
+</script>
+</body>
+</html>

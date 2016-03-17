@@ -1,0 +1,3 @@
+/**
+ * Test directive <%= nameOfDirective %>Directive.
+ */
