@@ -1,4 +1,5 @@
-# angular2gen - Build your Angular2 app from a simple basis 
+# angular2gen
+# Build your Angular2 app from a simple basis 
 
 Do you want to learn Angular 2 ? Do you want to build an Angular 2 from a simple basis ? Do you need an assistance in your development ? Angular2gen has been made for you!<br/>
 
@@ -10,15 +11,34 @@ That the reason why we built angular2gen, a Yeoman generator for Angular 2, with
 
 ## Generate an Angular 2 project
 
-Installation
+### Installation and execution 
 
 1) Install NodeJS: Use the [NodeJS Installer](https://nodejs.org/en/download/)
 
-2) Install Yeoman: Open shell and run: npm install -g yo
+2) Install Yeoman: Open shell and run: 
 
-2)
+```
+npm install -g yo
+```
 
-Folder architecture
+3) Run angular2gen: 
+
+```
+yo angular2gen
+```
+
+### Tools installation
+
+Just after running the previous command, angular2gen will ask you the name of your project and which tools would you like to use. 
+For tools, it can install:
+- Sass 
+- Bootstrap (v4.0.0-alpha.2) or Foundation 
+- Font Awesome. 
+
+
+###Folder architecture
+
+When your project has been generated, you will find the following structure 
 
 _ package.json <br/>
 _ app<br/>
