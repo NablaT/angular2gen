@@ -105,7 +105,7 @@ module.exports = generators.Base.extend({
 
         this.copy('_package.json', 'package.json');
         this.copy('_readme.md', 'readme.md');
-        this.copy('_gitignore', 'gitignore');
+        this.copy('_gitignore', '.gitignore');
         this.copy('_tsconfig.json', 'tsconfig.json');
         this.copy('_typings.json', 'typings.json');
         this.copy('_gulpfile.ts', 'gulpfile.ts');
@@ -149,7 +149,7 @@ module.exports = generators.Base.extend({
                 "- main.scss: File Sass which defines the common part in the design of the application" +
                 "- variables.scss: Contains all css variables used for the design";
             this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
-            this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/variables.scss');
+            this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/_variables.scss');
         }
         else{
 
