@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2gen",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Angular 2 project generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -26,10 +26,11 @@
   ],
   "homepage": "https://github.com/NablaT/angular2Generator#readme",
   "files": [
-	"app",
-	"routeur"
+    "app",
+    "routeur"
   ],
   "dependencies": {
+    "lodash": "^4.6.1",
     "yeoman-generator": "^0.22.5"
   }
 }
