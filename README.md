@@ -68,13 +68,13 @@ yo angular2gen:component NameOfYourComponent
 ```
 
 The command will create the folder name-of-your-component in the folder components with the following files: 
-
-- name-of-your-component<br/>
-    │_ name-of-your-component.component.html: The html file of the component<br/>
-    │_ name-of-your-component.component.scss or css (depends on Sass installation): The css file of the component<br/>
-    │_ name-of-your-component.component.spec.ts: The test file of the component <br/>
-    │_ name-of-your-component.component.ts: The component <br/>
-
+```
+- name-of-your-component
+    │_ name-of-your-component.component.html: The html file of the component
+    │_ name-of-your-component.component.scss or css (depends on Sass installation): The css file of the component
+    │_ name-of-your-component.component.spec.ts: The test file of the component 
+    │_ name-of-your-component.component.ts: The component 
+```
 ## Generate directives
 
 To generate a directive, run the following command in your shell:
@@ -84,10 +84,10 @@ yo angular2gen:directive NameOfYourDirective
 
 As you have seen in the folder architecture of the generator, the folder directives has two folder: one for the sources *src* and another for the tests *test*   
 ```
-- src<br/>
-         │_ name-of-your-directive.directive.ts : The main file of your directive<br/>
-- test <br/>
-         │_ name-of-your-directive.directive.spec.ts: The test file of your directive<br/>
+- src
+         │_ name-of-your-directive.directive.ts : The main file of your directive
+- test
+         │_ name-of-your-directive.directive.spec.ts: The test file of your directive
 ```
 
 ## Generate services
@@ -99,8 +99,15 @@ yo angular2gen:service NameOfYourService
 
 As for directives, services follow the same architecture with two folders: one for the sources *src* and another for the tests *test* 
 ```
-- src<br/>
-         │_ name-of-your-service.service.ts : The main file of your service<br/>
-- test <br/>
-         │_ name-of-your-service.service.spec.ts: The test file of your service<br/>
+- src
+         │_ name-of-your-service.service.ts : The main file of your service
+- test 
+         │_ name-of-your-service.service.spec.ts: The test file of your service
 ```
+
+
+###Contact
+
+Do not hesitate to contact us if you have questions, needs, requests ... You can do it by GitHub or directly by email:
+- <a href="mailto:remi.pourtier@gmail.com"> Rémi Pourtier </a>
+- <a href="mailto:guillaume.rahbari@gmail.com"> Guillaume Rahbari </a>
