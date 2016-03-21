@@ -39,26 +39,44 @@ For tools, it can install:
 ###Folder architecture
 
 When your project has been generated, you will find the following structure 
-
-_ package.json <br/>
-_ src<br/>
- - main.ts<br/>
- - routeur.ts<br/>
- - index.html<br/>
- - shared<br/>
-    │_ services<br/>
-       │_ src<br/>
-       │_ test<br/>
-    │_ directives<br/>
-       │_ src<br/>
-       │_ test<br/>
-    │_ styles<br/>
- - components<br/>
-    │_ app<br/>
+```
+- package.json
+- src
+ │_ main.ts
+ │_ routeur.ts
+ │_ index.html
+ - components
+    - app
+         │_ app.component.html
+         │_ app.component.scss or .css (depends on Sass installation)
+         │_ app.component.spec.ts
+         │_ app.component.ts
+    │_ README.md
+ - shared
+    - services
+       - src
+         │_ README.md
+       - test
+         │_ README.md
+    - directives
+       - src
+         │_ README.md
+       - test
+         │_ README.md
+    - styles
+         │_ README.md
  - assets
+- gulp
+- manual_typings
+- typings
+```
 
-_ routeur<br/>
- - index.js<br/>
+## Run application
+
+When the project has been generated, you can run the application with the following command:
+```
+gulp serve
+```
 
 ## Generate components
 
