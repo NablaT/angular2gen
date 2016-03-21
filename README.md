@@ -21,7 +21,13 @@ That the reason why we built angular2gen, a Yeoman generator for Angular 2, with
 npm install -g yo
 ```
 
-3) Run angular2gen: 
+3) Install angular2gen 
+
+```
+npm install -g yo generator-angular2gen
+```
+
+4) Run angular2gen: 
 
 ```
 yo angular2gen
