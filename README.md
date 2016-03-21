@@ -1,7 +1,7 @@
 # angular2gen
 # Build your Angular2 app from a simple basis 
 
-Do you want to learn Angular 2 ? Do you want to build an Angular 2 from a simple basis ? Do you need an assistance in your development ? Angular2gen has been made for you!<br/>
+Do you want to learn Angular 2 ? Do you want to build an Angular 2 application from a simple basis ? Do you need an assistance in your development ? Angular2gen has been made for you!<br/>
 
 Angular 2 is a new framework totally different from AngularJS 1 and other JavaScript frameworks. Everybody starts Angular2 from 0 (almost :P). In consequence, two important axes appear as the key to succeed your first Angular2 development: simplicity and assistance.   
 
