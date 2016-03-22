@@ -1,5 +1,5 @@
 /**
- * Component <%= nameOfComponent %>
+ * Component <%= nameOfComponent %>Component
  */
 
 import {Component} from 'angular2/core';
@@ -10,4 +10,4 @@ import {Component} from 'angular2/core';
     templateUrl: './<%= argsInKebab %>.component.html',
     styleUrls : ['./<%= argsInKebab %>.component.css']
 })
-export class <%= nameOfComponent %> { }
+export class <%= nameOfComponent %>Component { }

@@ -1,11 +1,11 @@
 /**
  * Test Component <%= nameOfComponent %>
  */
-import {<%= nameOfComponent %>} from "./<%= argsInKebab %>.component";
+import {<%= nameOfComponent %>Component} from "./<%= argsInKebab %>.component";
 import {Component} from "angular2/core";
 @Component({
-    selector: 'test-cmp',
+    selector: 'test-<%= argsInKebab %>',
     template: '<sd-<%= argsInKebab %>></sd-<%= argsInKebab %>>',
     directives: []
 })
-class Test<%= nameOfComponent %> {}
+class Test<%= nameOfComponent %>Component {}

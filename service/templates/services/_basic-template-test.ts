@@ -1,3 +1,3 @@
 /**
- * Test service <%= nameOfService %>
+ * Test service <%= nameOfService %>Service
  */
