@@ -94,11 +94,11 @@ yo angular2gen:component Name
 ```
 
 ##### The component name will be NameComponent. 
-##### For instance, you run yo angular2gen:component Menu, the name of the class will be MenuComponenent
+##### For instance, you run yo angular2gen:component Menu, the name of the class will be MenuComponent
 
 We made this choice for two reasons:
 - Avoid conflict between names of your components, services and directives
-- Better maintanbility and modifiability. A quick eye on the file and you know variables role. 
+- Better maintanability and modifiability. A quick eye on the file and you know variables role.
 
 The command will create the folder name-of-your-component in the folder components with the following files: 
 ```
