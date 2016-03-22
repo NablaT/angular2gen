@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2gen",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Angular 2 project generator",
   "license": "MIT",
   "main": "app/index.js",
