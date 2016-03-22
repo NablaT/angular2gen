@@ -34,7 +34,7 @@ module.exports = generators.Base.extend({
             store: true,
             default: "N" // Default
         }, function (answers) {
-            this.sassValue = answers.name;
+            this.sassValue = answers.name.toLowerCase();
             done();
         }.bind(this));
     },
@@ -52,7 +52,7 @@ module.exports = generators.Base.extend({
             store: true,
             default: "N"  // Default
         }, function (answers) {
-            this.bootstrapValue = answers.name;
+            this.bootstrapValue = answers.name.toLowerCase();
             done();
         }.bind(this));
     },
@@ -62,7 +62,7 @@ module.exports = generators.Base.extend({
      * We store his answers in the variable foundationValue.
      */
     askForFoundation: function () {
-        if (this.bootstrapValue === "N") {
+        if (this.bootstrapValue !== "yes" || this.bootstrapValue !== "y") {
             var done = this.async();
             this.prompt({
                 type: 'input',
@@ -71,7 +71,7 @@ module.exports = generators.Base.extend({
                 store: true,
                 default: "N"  // Default
             }, function (answers) {
-                this.foundationValue = answers.name;
+                this.foundationValue = answers.name.toLowerCase();
                 done();
             }.bind(this));
         }
@@ -91,7 +91,7 @@ module.exports = generators.Base.extend({
             store: true,
             default: "N"  // Default
         }, function (answers) {
-            this.fontAwesomeValue = answers.name;
+            this.fontAwesomeValue = answers.name.toLowerCase();
             done();
         }.bind(this));
     },
@@ -119,7 +119,7 @@ module.exports = generators.Base.extend({
         //Component folder creation
         this.copy('src/components/_README.md', 'src/components/README.md');
         this.copy('src/components/app/_app.component.html', 'src/components/app/app.component.html');
-        if (this.sassValue=== "Y") {
+        if (this.sassValue=== "yes" || this.sassValue=== "y") {
             this.copy('src/components/app/_app.component.scss', 'src/components/app/app.component.scss');
         }
         else{
@@ -144,7 +144,7 @@ module.exports = generators.Base.extend({
         //We initialise the message which appears in the readme of the style folder. We give two different message
         //if sass has been installed or not.
         this.messageInReadMe="";
-        if (this.sassValue=== "Y") {
+        if (this.sassValue=== "yes" || this.sassValue=== "y") {
             this.messageInReadMe="Initially, we generate two files: " +
                 "- main.scss: File Sass which defines the common part in the design of the application" +
                 "- variables.scss: Contains all css variables used for the design";
@@ -179,7 +179,7 @@ module.exports = generators.Base.extend({
      * Function installSass. This function checks if user want to install Sass, if yes it runs the installation.
      */
     installSass: function(){
-        if (this.sassValue=== "Y") {
+        if (this.sassValue=== "yes" || this.sassValue=== "y") {
             this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
         }
     },
@@ -189,10 +189,10 @@ module.exports = generators.Base.extend({
      * If one of those framework has been chosen, the function install it.
      */
     installBootstrapOrFoundation: function(){
-        if (this.bootstrapValue === "Y") {
+        if (this.bootstrapValue === "y" || this.bootstrapValue === "yes") {
             this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
         }
-        else if (this.foundationValue === "Y") {
+        else if (this.foundationValue === "y" || this.foundationValue === "yes" ) {
             this.npmInstall(['foundation-sites'], { 'save': true }); //npm install foundation-sites --save
         }
     },
@@ -201,7 +201,7 @@ module.exports = generators.Base.extend({
      * Function installFontAwesome. This function checks if user want to install FontAwesome, if yes it runs the installation.
      */
     installFontAwesome: function(){
-        if (this.fontAwesomeValue === "Y") {
+        if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes" ) {
             this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
         }
     },

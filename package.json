@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NablaT/angular2Generator.git"
+    "url": "git+https://github.com/NablaT/angular2gen.git"
   },
   "author": "Guillaume Rahbari <guillaume.rahbari@gmail.com> & Remi Pourtier <remi.pourtier@gmail.com>",
   "bugs": {
-    "url": "https://github.com/NablaT/angular2Generator/issues"
+    "url": "https://github.com/NablaT/angular2gen/issues"
   },
   "keywords": [
     "yeoman-generator",
@@ -24,7 +24,7 @@
     "angularjs2",
     "angular2"
   ],
-  "homepage": "https://github.com/NablaT/angular2Generator#readme",
+  "homepage": "https://github.com/NablaT/angular2gen#readme",
   "files": [
     "app",
     "routeur"
