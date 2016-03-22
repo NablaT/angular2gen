@@ -1,0 +1,9 @@
+/**
+ *  If you want to override some foundation variables, you have to change values here.
+ *  The list of variables are listed here node_modules/foundation/scss/_global.scss
+ */
+$global-flexbox : true;
+
+@import 'variables';
+
+@import '../../../node_modules/foundation-sites/assets/foundation';

@@ -148,11 +148,20 @@ module.exports = generators.Base.extend({
             this.messageInReadMe="Initially, we generate two files: " +
                 "- main.scss: File Sass which defines the common part in the design of the application" +
                 "- variables.scss: Contains all css variables used for the design";
-            this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
+
+            if(this.bootstrapValue === "y" || this.bootstrapValue === "yes"){
+                this.copy('src/shared/styles/_main-bootstrap.scss', 'src/shared/styles/main.scss');
+            }
+            else if(this.foundationValue === "y" || this.foundationValue === "yes"){
+                this.copy('src/shared/styles/_main-foundation.scss', 'src/shared/styles/main.scss');
+            }
+            else{
+                this.copy('src/shared/styles/main.scss', 'src/shared/styles/main.scss');
+            }
             this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/_variables.scss');
         }
         else{
-
+            //TODO: Add global css if user didn't choose Sass
         }
         this.copy('src/shared/styles/_README.md', 'src/shared/styles/README.md');
 
