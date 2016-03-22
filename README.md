@@ -114,7 +114,7 @@ To generate a directive, run the following command in your shell:
 ```
 yo angular2gen:directive Name
 ```
-##### The directive name will be NameeDirective. 
+##### The directive name will be NameDirective.
 ##### For instance, you run yo angular2gen:directive Draggable, the name of the class will be DraggableDirective
 
 As you have seen in the folder architecture of the generator, the folder directives has two folders: one for the sources *src* and another for the tests *test*   
