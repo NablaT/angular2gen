@@ -9,6 +9,8 @@ That the reason why we built angular2gen, a Yeoman generator for Angular 2, with
 - Be able to create a simple and intuitive project structure according to the tools you would like to use.
 - Be able to generate everything you need for your development: components, directives, services, global styles.
 
+We developed also several Gulp task for launching the application (Sass and typescript compilation), live reload etc...
+
 ## Generate an Angular 2 project
 
 ### Installation and execution 
@@ -88,8 +90,15 @@ gulp serve
 
 To generate a component, you just have to run the following command in your shell:
 ```
-yo angular2gen:component NameOfYourComponent
+yo angular2gen:component Name
 ```
+
+##### The component name will be NameComponent. 
+##### For instance, you run yo angular2gen:component Menu, the name of the class will be MenuComponenent
+
+We made this choice for two reasons:
+- Avoid conflict between names of your components, services and directives
+- Better maintanbility and modifiability. A quick eye on the file and you know variables role. 
 
 The command will create the folder name-of-your-component in the folder components with the following files: 
 ```
@@ -103,10 +112,12 @@ The command will create the folder name-of-your-component in the folder componen
 
 To generate a directive, run the following command in your shell:
 ```
-yo angular2gen:directive NameOfYourDirective
+yo angular2gen:directive Name
 ```
+##### The directive name will be NameeDirective. 
+##### For instance, you run yo angular2gen:directive Draggable, the name of the class will be DraggableDirective
 
-As you have seen in the folder architecture of the generator, the folder directives has two folder: one for the sources *src* and another for the tests *test*   
+As you have seen in the folder architecture of the generator, the folder directives has two folders: one for the sources *src* and another for the tests *test*   
 ```
 - src
          │_ name-of-your-directive.directive.ts : The main file of your directive
@@ -118,8 +129,11 @@ As you have seen in the folder architecture of the generator, the folder directi
 
 To generate a service, run the following command in your shell:
 ```
-yo angular2gen:service NameOfYourService
+yo angular2gen:service Name
 ```
+
+##### The directive name will be NameService. 
+##### For instance, you run yo angular2gen:service CallDataBase, the name of the class will be CallDataBaseService
 
 As for directives, services follow the same architecture with two folders: one for the sources *src* and another for the tests *test* 
 ```
@@ -128,7 +142,12 @@ As for directives, services follow the same architecture with two folders: one f
 - test 
          │_ name-of-your-service.service.spec.ts: The test file of your service
 ```
+###Missing Functionalities 
 
+We haven't finished the generator yet. We have several missing functionalities: 
+- Update the initial application in the generator to an app with a menu and several elements to have a real home page 
+- Give the possibility to user to choose its first application: blank project or a first application
+- Develop new gulp tasks for testing and application deployement.
 
 ###Contact
 
