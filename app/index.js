@@ -62,7 +62,7 @@ module.exports = generators.Base.extend({
      * We store his answers in the variable foundationValue.
      */
     askForFoundation: function () {
-        if (this.bootstrapValue !== "yes" || this.bootstrapValue !== "y") {
+        if (this.bootstrapValue !== "yes" && this.bootstrapValue !== "y") {
             var done = this.async();
             this.prompt({
                 type: 'input',
@@ -150,21 +150,36 @@ module.exports = generators.Base.extend({
                 "- variables.scss: Contains all css variables used for the design";
 
             if(this.bootstrapValue === "y" || this.bootstrapValue === "yes"){
-                this.copy('src/shared/styles/_main-bootstrap.scss', 'src/shared/styles/main.scss');
+                if(this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes"){
+                    this.copy('src/shared/styles/_main-bootstrap-font.scss', 'src/shared/styles/main.scss');
+                }
+                else{
+                    this.copy('src/shared/styles/_main-bootstrap.scss', 'src/shared/styles/main.scss');
+                }
             }
             else if(this.foundationValue === "y" || this.foundationValue === "yes"){
-                this.copy('src/shared/styles/_main-foundation.scss', 'src/shared/styles/main.scss');
+                if(this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes"){
+                    this.copy('src/shared/styles/_main-foundation-font.scss', 'src/shared/styles/main.scss');
+                }
+                else{
+                    this.copy('src/shared/styles/_main-foundation.scss', 'src/shared/styles/main.scss');
+                }
             }
             else{
                 this.copy('src/shared/styles/main.scss', 'src/shared/styles/main.scss');
             }
             this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/_variables.scss');
+            /*console.log("Oui dans le if de sassvalue");
+            if(this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes"){
+                //this.fontAwesomeContentSCSS= "$fa-font-path : \'../../../node_modules/font-awesome/fonts\';";
+                this.fontAwesomeContentSCSS="bondour";
+            }*/
         }
         else{
             //TODO: Add global css if user didn't choose Sass
         }
         this.copy('src/shared/styles/_README.md', 'src/shared/styles/README.md');
-
+        this.fontAwesomeContentSCSS="bondour";
         //Copy grunt tasks
         this.copy('gulp/README.md', 'gulp/README.md');
         this.copy('gulp/browsersync.ts', 'gulp/browsersync.ts');
@@ -186,7 +201,7 @@ module.exports = generators.Base.extend({
 
     /**
      * Function installSass. This function checks if user want to install Sass, if yes it runs the installation.
-     */
+     *
     installSass: function(){
         if (this.sassValue=== "yes" || this.sassValue=== "y") {
             this.npmInstall(['gulp-sass'], { 'save': true }); //npm install gulp-sass --save
@@ -196,7 +211,7 @@ module.exports = generators.Base.extend({
     /**
      * Function installBootstrapOrFoundation. This function checks if user want to install Bootstrap or Foundation.
      * If one of those framework has been chosen, the function install it.
-     */
+     *
     installBootstrapOrFoundation: function(){
         if (this.bootstrapValue === "y" || this.bootstrapValue === "yes") {
             this.npmInstall(['bootstrap@4.0.0-alpha.2'], { 'save': true }); //npm install bootstrap@4.0.0-alpha.2 --save
@@ -208,7 +223,7 @@ module.exports = generators.Base.extend({
 
     /**
      * Function installFontAwesome. This function checks if user want to install FontAwesome, if yes it runs the installation.
-     */
+     *
     installFontAwesome: function(){
         if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes" ) {
             this.npmInstall(['font-awesome'], { 'save': true }); //npm install font-awesome --save
@@ -217,7 +232,7 @@ module.exports = generators.Base.extend({
 
     /**
      * Function install. This function installs all dependencies according to user choices.
-     */
+     *
     install: function () {
         this.npmInstall(['gulp-cli'], { 'g': true });
         this.npmInstall(); //npm install
