@@ -151,6 +151,6 @@ We haven't finished the generator yet. We have several missing functionalities:
 
 ###Contact
 
-Do not hesitate to contact us if you have questions, needs, requests ... You can do it by GitHub or directly by email:
-- <a href="mailto:remi.pourtier@gmail.com"> Rémi Pourtier </a>
-- <a href="mailto:guillaume.rahbari@gmail.com"> Guillaume Rahbari </a>
+Do not hesitate to contact us if you have questions, needs, requests ... You can do it by GitHub, directly by email or by Linkedin:
+- Rémi Pourtier: <a href="mailto:remi.pourtier@gmail.com"> Mail </a> | <a href="https://www.linkedin.com/in/r%C3%A9mi-pourtier-91a93782?authType=name&authToken=tNqn&trk=prof-sb-browse_map-name"> Linkedin</a>
+- Guillaume Rahbari: <a href="mailto:guillaume.rahbari@gmail.com"> Mail </a> |  <a href="https://www.linkedin.com/in/guillaume-rahbari-948a25a9?trk=endrs-viewall-profile"> Linkedin</a>
