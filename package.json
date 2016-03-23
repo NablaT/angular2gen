@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/NablaT/angular2gen.git"
   },
-  "author": "Guillaume Rahbari <guillaume.rahbari@gmail.com> & Remi Pourtier <remi.pourtier@gmail.com>",
+  "author": "Remi Pourtier <remi.pourtier@gmail.com> & Guillaume Rahbari <guillaume.rahbari@gmail.com> ",
   "bugs": {
     "url": "https://github.com/NablaT/angular2gen/issues"
   },
