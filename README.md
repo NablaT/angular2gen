@@ -44,11 +44,11 @@ For tools, it can install:
 - Font Awesome. 
 
 ```
-? Your project name NameOfYourfirstApp
-Would you like to use Sass ? (Y/N) Y
-Would you like to use Bootstrap ? (Y/N) N
-Would you like to use Foundation ? (Y/N) Y
-Would you like to use FontAwesome ? (Y/N) Y
+Your project name: *NameOfYourfirstApp*
+Would you like to use Sass ? (Y/N) *Y*
+Would you like to use Bootstrap ? (Y/N) *N*
+Would you like to use Foundation ? (Y/N) *Y*
+Would you like to use FontAwesome ? (Y/N) *Y*
 ```
 
 If you think tools are missing, do not hesitate to contact us and tell us which tools should be interesting to use in an Angular 2 app!  

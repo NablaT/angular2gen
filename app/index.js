@@ -12,7 +12,7 @@ module.exports = generators.Base.extend({
         this.prompt({
             type: 'input',
             name: 'name',
-            message: 'Your project name',
+            message: 'Your project name: ',
             store: true,
             default: "MyApp"
         }, function (answers) {
