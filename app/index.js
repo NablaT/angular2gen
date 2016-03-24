@@ -111,7 +111,6 @@ module.exports = generators.Base.extend({
         this.copy('_gulpfile.ts', 'gulpfile.ts');
 
         this.copy('src/_main.ts', 'src/main.ts');
-        this.copy('src/_routeur.ts', 'src/component.ts');
         this.copy('src/_index.html', 'src/index.html');
 
         this.copy('src/assets/_README.md', 'src/assets/README.md');
