@@ -6,6 +6,7 @@ import {Component} from "angular2/core";
 @Component({
     selector: 'test-cmp',
     template: '<sd-app></sd-app>',
-    directives:  []
+    directives: []
 })
-class TestApp{}
+class TestApp {
+}
