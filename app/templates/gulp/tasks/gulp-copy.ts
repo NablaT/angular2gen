@@ -7,11 +7,8 @@ import {
     ALL_FILES,
     TYPESCRIPT_FILES,
     SASS_FILES,
-    INDEX,
-    SHIMS_DEPENDENCIES,
-    SHIMS
+    INDEX
 } from '../gulp.conf';
-var es = require('event-stream');
 
 const plugins = <any>gulpLoadPlugins();
 
