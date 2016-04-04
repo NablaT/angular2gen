@@ -5,9 +5,17 @@ import * as requireDir from 'require-dir';
 requireDir('./gulp/tasks');
 
 gulp.task('serve', callback =>
-    runSequence('build', 'watch', callback)
+    runSequence('build:dev', 'watch', callback)
 );
 
-gulp.task('build', callback =>
-    runSequence('clean', ['copy:dist', 'ts:dist', 'sass:dist'], 'inject', 'server:init', callback)
+gulp.task('serve:prod', callback =>
+    runSequence('build:prod', 'server:prod')
+);
+
+gulp.task('build:dev', callback =>
+    runSequence('clean:dev', ['copy:dev', 'ts:dev', 'sass:dev'], 'inject:dev', 'server:dev', callback)
+);
+
+gulp.task('build:prod', callback =>
+    runSequence('clean:prod', ['copy:prod', 'ts:prod', 'sass:prod'], 'inject:prod', 'useref:prod', callback)
 );
