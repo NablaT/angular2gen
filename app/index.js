@@ -11,12 +11,12 @@ module.exports = generators.Base.extend({
         var done = this.async();
         this.prompt({
             type: 'input',
-            name: 'name',
+            name: 'appName',
             message: 'Your project name: ',
             store: true,
             default: "MyApp"
         }, function (answers) {
-            this.projectTitle = answers.name;
+            this.projectTitle = answers.appName;
             done();
         }.bind(this));
     },
@@ -29,12 +29,12 @@ module.exports = generators.Base.extend({
         var done = this.async();
         this.prompt({
             type: 'input',
-            name: 'name',
+            name: 'sass',
             message: 'Would you like to use Sass? (Y/N)',
             store: true,
             default: "N" // Default
         }, function (answers) {
-            this.sassValue = answers.name.toLowerCase();
+            this.sassValue = answers.sass.toLowerCase();
             done();
         }.bind(this));
     },
@@ -47,12 +47,12 @@ module.exports = generators.Base.extend({
         var done = this.async();
         this.prompt({
             type: 'input',
-            name: 'name',
+            name: 'bootstrap',
             message: 'Would you like to use Bootstrap? (Y/N)',
             store: true,
             default: "N"  // Default
         }, function (answers) {
-            this.bootstrapValue = answers.name.toLowerCase();
+            this.bootstrapValue = answers.bootstrap.toLowerCase();
             done();
         }.bind(this));
     },
@@ -66,12 +66,12 @@ module.exports = generators.Base.extend({
             var done = this.async();
             this.prompt({
                 type: 'input',
-                name: 'name',
+                name: 'foundation',
                 message: 'Would you like to use Foundation? (Y/N)',
                 store: true,
                 default: "N"  // Default
             }, function (answers) {
-                this.foundationValue = answers.name.toLowerCase();
+                this.foundationValue = answers.foundation.toLowerCase();
                 done();
             }.bind(this));
         }
@@ -86,12 +86,12 @@ module.exports = generators.Base.extend({
         var done = this.async();
         this.prompt({
             type: 'input',
-            name: 'name',
+            name: 'fontAwesome',
             message: 'Would you like to use Font Awesome? (Y/N)',
             store: true,
             default: "N"  // Default
         }, function (answers) {
-            this.fontAwesomeValue = answers.name.toLowerCase();
+            this.fontAwesomeValue = answers.fontAwesome.toLowerCase();
             done();
         }.bind(this));
     },
