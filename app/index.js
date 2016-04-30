@@ -117,15 +117,19 @@ module.exports = generators.Base.extend({
 
         //Component folder creation
         this.copy('src/components/_README.md', 'src/components/README.md');
-        this.copy('src/components/app/_app.component.html', 'src/components/app/app.component.html');
-        if (this.sassValue=== "yes" || this.sassValue=== "y") {
-            this.copy('src/components/app/_app.component.scss', 'src/components/app/app.component.scss');
+        var component=["app","about","header", "home"];
+        for(var i=0;i<component.length;i++){
+            this.copy('src/components/'+component[i]+'/_'+component[i]+'.component.html', 'src/components/'+component[i]+'/'+component[i]+'.component.html');
+            if (this.sassValue=== "yes" || this.sassValue=== "y") {
+                this.copy('src/components/'+component[i]+'/_'+component[i]+'.component.scss', 'src/components/'+component[i]+'/'+component[i]+'.component.scss');
+            }
+            else{
+                this.copy('src/components/app/_app.component.css', 'src/components/'+component[i]+'/'+component[i]+'.component.css');
+            }
+            this.copy('src/components/'+component[i]+'/_'+component[i]+'.component.ts', 'src/components/'+component[i]+'/'+component[i]+'.component.ts');
+            this.copy('src/components/'+component[i]+'/_'+component[i]+'.component.spec.ts', 'src/components/'+component[i]+'/'+component[i]+'.component.spec.ts');
+
         }
-        else{
-            this.copy('src/components/app/_app.component.css', 'src/components/app/app.component.css');
-        }
-        this.copy('src/components/app/_app.component.ts', 'src/components/app/app.component.ts');
-        this.copy('src/components/app/_app.component.spec.ts', 'src/components/app/app.component.spec.ts');
 
         this.copy('src/shared/_README.md', 'src/shared/README.md');
 
@@ -188,6 +192,7 @@ module.exports = generators.Base.extend({
 
         //Manual typings folder
         this.copy('manual_typings/README.md', 'manual_typings/README.md');
+        this.copy('manual_typings/connect-history-api-fallback.d.ts', 'manual_typings/connect-history-api-fallback.d.ts');
         this.copy('manual_typings/require-dir.d.ts', 'manual_typings/require-dir.d.ts');
         this.copy('manual_typings/manual-typings.d.ts', 'manual_typings/manual-typings.d.ts');
 
