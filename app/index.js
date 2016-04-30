@@ -176,6 +176,7 @@ module.exports = generators.Base.extend({
         this.fontAwesomeContentSCSS="bondour";
         //Copy grunt tasks
         this.copy('gulp/README.md', 'gulp/README.md');
+        this.copy('gulp/gulp.conf.ts', 'gulp/gulp.conf.ts');
         this.copy('gulp/browsersync.ts', 'gulp/browsersync.ts');
         this.copy('gulp/tasks/gulp-clean.ts', 'gulp/tasks/gulp-clean.ts');
         this.copy('gulp/tasks/gulp-copy.ts', 'gulp/tasks/gulp-copy.ts');
