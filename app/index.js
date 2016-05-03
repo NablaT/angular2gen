@@ -169,7 +169,7 @@ module.exports = generators.Base.extend({
                 }
             }
             else{
-                this.copy('src/shared/styles/main.scss', 'src/shared/styles/main.scss');
+                this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
             }
             this.copy('src/shared/styles/_variables.scss', 'src/shared/styles/_variables.scss');
         }
