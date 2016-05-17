@@ -115,6 +115,7 @@ module.exports = generators.Base.extend({
 
         this.copy('src/assets/_README.md', 'src/assets/README.md');
 
+        this.copy('src/assets/picture.png', 'src/assets/picture.png');
         //Component folder creation
         this.copy('src/components/_README.md', 'src/components/README.md');
         var component=["app","about","header", "home"];
@@ -167,6 +168,9 @@ module.exports = generators.Base.extend({
                 else{
                     this.copy('src/shared/styles/_main-foundation.scss', 'src/shared/styles/main.scss');
                 }
+                this.copy('src/components/home/_home-foundation.component.html', 'src/components/home/home.component.html');
+                this.copy('src/components/home/_home-foundation.component.scss', 'src/components/home/home.component.scss');
+                this.copy('src/components/header/_header-foundation.component.html', 'src/components/header/header.component.html');
             }
             else{
                 this.copy('src/shared/styles/_main.scss', 'src/shared/styles/main.scss');
