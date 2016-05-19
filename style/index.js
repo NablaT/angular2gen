@@ -41,10 +41,10 @@ module.exports = generators.Base.extend({
 
         this.basicTemplate= 'src/shared/styles/' + this.argsInKebab;
         if(this.hasSass){
-            this.copy('styles/_basic-template.css', this.basicTemplate + '.component.scss');
+            this.copy('styles/_basic-template.css', this.basicTemplate + '.scss');
         }
         else{
-            this.copy('styles/_basic-template.css', this.basicTemplate + '.component.css');
+            this.copy('styles/_basic-template.css', this.basicTemplate + '.css');
         }
     },
 
