@@ -1,19 +1,7 @@
 {
   "ambientDependencies": {
-    "browser-sync": "github:DefinitelyTyped/DefinitelyTyped/browser-sync/browser-sync.d.ts#d9b5b35ba3a79ac778c5890531393442439df5dd",
-    "chokidar": "github:DefinitelyTyped/DefinitelyTyped/chokidar/chokidar.d.ts#ae81e340a9e897167cfef3122a5a3aed04293814",
-    "del": "github:DefinitelyTyped/DefinitelyTyped/del/del.d.ts#9027703c0bd831319dcdf7f3169f7a468537f448",
-    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
-    "glob": "github:DefinitelyTyped/DefinitelyTyped/glob/glob.d.ts#a14d724826174d1669d4df04c80f4838b7e71fdf",
-    "gulp": "github:DefinitelyTyped/DefinitelyTyped/gulp/gulp.d.ts#fbdc1b91125a87e62be3803f58aabb176cc2fd50",
-    "gulp-load-plugins": "github:DefinitelyTyped/DefinitelyTyped/gulp-load-plugins/gulp-load-plugins.d.ts#e081148d88b857d66509e3b46edbd08b3f75f96a",
-    "micromatch": "github:DefinitelyTyped/DefinitelyTyped/micromatch/micromatch.d.ts#7cda84786520fd0673c934fde1aa722083e05f7b",
-    "minimatch": "github:DefinitelyTyped/DefinitelyTyped/minimatch/minimatch.d.ts#a3900b896f7b3361b79f9b503224777619907d53",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff",
-    "orchestrator": "github:DefinitelyTyped/DefinitelyTyped/orchestrator/orchestrator.d.ts#422b006d39dd37fc667ce5464967ee3ff6135092",
-    "parse-glob": "github:DefinitelyTyped/DefinitelyTyped/parse-glob/parse-glob.d.ts#1ae2ddf27c6e9b98ad7e7fa496788f1aadf37933",
-    "q": "github:DefinitelyTyped/DefinitelyTyped/q/Q.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
-    "run-sequence": "github:DefinitelyTyped/DefinitelyTyped/run-sequence/run-sequence.d.ts#fbdc1b91125a87e62be3803f58aabb176cc2fd50",
-    "systemjs": "github:DefinitelyTyped/DefinitelyTyped/systemjs/systemjs.d.ts#83af898254689400de8fb6495c34119ae57ec3fe"
+    "core-js": "registry:dt/core-js#0.0.0+20160317120654",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
+    "node": "registry:dt/node#4.0.0+20160509154515"
   }
 }
