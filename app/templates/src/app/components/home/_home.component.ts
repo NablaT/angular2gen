@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from "@angular/core";
 
 @Component({
     selector: 'home',
@@ -10,6 +10,6 @@ export class HomeComponent {
     public pathImage:string;
 
     constructor(){
-        this.pathImage="../assets/picture.png";
+        this.pathImage="../../../../assets/picture.png";
     }
 }
