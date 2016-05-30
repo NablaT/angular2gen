@@ -14,6 +14,12 @@
 <body>
     <app>Loading...</app>
 
+    <script>
+        // Fixes undefined module function in SystemJS bundle
+        function module () {
+        }
+    </script>
+
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
     <!-- shims:js -->
