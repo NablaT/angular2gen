@@ -104,14 +104,15 @@ module.exports = generators.Base.extend({
         this.basicTemplate = 'src/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
+        this.copy('_.babelrc', '.babelrc');
         this.copy('_readme.md', 'readme.md');
         this.copy('_gitignore', '.gitignore');
         this.copy('_tsconfig.json', 'tsconfig.json');
         this.copy('_typings.json', 'typings.json');
-        this.copy('_gulpfile.ts', 'gulpfile.ts');
+        this.copy('_gulpfile.babel.js', 'gulpfile.babel.js');
 
-        this.copy('src/_main.ts', 'src/main.ts');
         this.copy('src/_index.html', 'src/index.html');
+        this.copy('src/_systemjs.config.js', 'src/systemjs.config.js');
 
         this.copy('src/assets/_README.md', 'src/assets/README.md');
 
