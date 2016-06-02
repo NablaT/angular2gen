@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {HeaderComponent} from '../header/header.component';
-import {AboutComponent} from '../about/about.component';
+import {AboutComponent} from 'components/+about/index';
 import {HomeComponent} from '../home/home.component';
 
 @Component({
