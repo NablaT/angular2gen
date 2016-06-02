@@ -19,7 +19,7 @@ export function main() {
                     .then((rootTC:any) => {
                         let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
 
-                        expect(getDOM().querySelectorAll(aboutDOMEl, 'h1')[0].textContent).toEqual('Hey, I'm Home !');
+                        expect(getDOM().querySelectorAll(aboutDOMEl, 'h1')[0].textContent).toEqual("Hey, I'm Home !");
                     });
             }));
     });
