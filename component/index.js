@@ -40,30 +40,35 @@ module.exports = generators.Base.extend({
      */
     writing: function () {
         if (this.hasArgs) {
-            if (this.argsArray.length > 0) {
-                for (var i = 0; i < this.argsArray.length - 1; i++) {
-                    this.path = this.argsInKebab + '/' + lodash.kebabCase(this.argsArray[i]);
+            if (this.argsArray.length > 1) {
+                this.componentName=this.argsArray[this.argsArray.length-1];
+                for (var i = 0; i < this.argsArray.length; i++) {
+                    var addAPlus = "";
+                    if (this.argsArray[i].indexOf("+") > -1) {
+                        addAPlus = "+";
+                    }
+                    if (i == 0) {
+                        this.path = addAPlus + lodash.kebabCase(this.argsArray[i]);
+                    }
+                    else {
+                        this.path = this.path + '/' + addAPlus + lodash.kebabCase(this.argsArray[i]);
+                    }
                 }
-                this.basicTemplate = 'src/app/components/' + this.path + '/' + lodash.kebabCase(this.argsArray[this.argsArray.length-1]);
+                this.argsInKebab = lodash.kebabCase(this.argsArray[this.argsArray.length - 1]);
+                this.basicTemplate = 'src/app/components/' + this.path + '/' + this.argsInKebab;
             }
             else {
+                this.componentName=this.arguments;
                 this.argsInKebab = lodash.kebabCase(this.arguments);
-                this.basicTemplate = 'src/app/components/' + this.argsInKebab + '/' + this.argsInKebab;
+                this.path=  lodash.kebabCase(this.arguments);
+                this.basicTemplate = 'src/app/components/' + this.path + '/' + this.argsInKebab;
             }
-            console.log("path: " + this.basicTemplate);
-            /**
-             this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
-             this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
-             this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
-             this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');**/
+            this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
+            this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
+            this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
+            this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');
+            this.copy('components/_index.ts', 'src/app/components/' +this.path + '/index.ts');
         }
-        /**
-         this.argsInKebab = lodash.kebabCase(this.arguments);
-         this.basicTemplate = 'src/app/components/' + this.argsInKebab + '/' + this.argsInKebab;
-         this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
-         this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
-         this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
-         this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');**/
     },
 
 });
