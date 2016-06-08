@@ -24,24 +24,6 @@ module.exports = generators.Base.extend({
     },
 
     /**
-     * Function askForSass. This function asks to user if he would like to use Sass.
-     * We store his answers in the variable sassValue.
-
-     askForSass: function () {
-        var done = this.async();
-        this.prompt({
-            type: 'input',
-            name: 'sass',
-            message: 'Would you like to use Sass? (Y/N)',
-            store: true,
-            default: "N" // Default
-        }, function (answers) {
-            this.sassValue = answers.sass.toLowerCase();
-            done();
-        }.bind(this));
-    },*/
-
-    /**
      * Function askForBootstrap. This function asks to user if he would like to use Bootstrap.
      * We store his answers in the variable bootstrapValue.
      */
@@ -108,7 +90,7 @@ module.exports = generators.Base.extend({
         this.copy('_package.json', 'package.json');
         this.copy('_.babelrc', '.babelrc');
         this.copy('_readme.md', 'readme.md');
-        this.copy('_gitignore', '.gitignore');
+        this.copy('_.gitignore', '.gitignore');
         this.copy('_tsconfig.json', 'tsconfig.json');
         this.copy('_typings.json', 'typings.json');
         this.copy('_gulpfile.babel.js', 'gulpfile.babel.js');
