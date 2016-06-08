@@ -10,7 +10,7 @@ import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
 import {HomeComponent} from "./home.component";
 
 export function main() {
-    describe('App component', () => {
+    describe('Home component', () => {
 
 
         it('should work',
@@ -28,7 +28,7 @@ export function main() {
 @Component({
     selector: 'test-cmp',
     directives: [HomeComponent],
-    template: '<sd-app></sd-app>'
+    template: '<sd-home></sd-home>'
 })
 class TestComponent {
 }

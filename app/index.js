@@ -18,7 +18,6 @@ module.exports = generators.Base.extend({
             default: "MyApp"
         }, function (answers) {
             this.projectTitle = answers.appName;
-            this.ENV = 'dev';
             done();
         }.bind(this));
     },
@@ -88,6 +87,7 @@ module.exports = generators.Base.extend({
         this.basicTemplate = 'src/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
+        this.copy('_test-main.js', 'test-main.js');
         this.copy('_.babelrc', '.babelrc');
         this.copy('_readme.md', 'readme.md');
         this.copy('_.gitignore', '.gitignore');
@@ -107,6 +107,8 @@ module.exports = generators.Base.extend({
         this.copy('src/app/_app.component.spec.ts', 'src/app/app.component.spec.ts');
         this.copy('src/app/_app.component.html', 'src/app/app.component.html');
         this.copy('src/app/_app.component.scss', 'src/app/app.component.scss');
+        this.copy('src/app/_main.ts', 'src/app/main.ts');
+        this.copy('src/app/_routeur.ts', 'src/app/router.ts');
         var component = ["about", "header", "home"];
         var folderName = ["+about", "header", "+home"];
         for (var i = 0; i < component.length; i++) {
@@ -114,6 +116,7 @@ module.exports = generators.Base.extend({
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.scss', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.scss');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.ts');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.spec.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.spec.ts');
+            this.copy('src/app/components/' + folderName[i] + '/_index.ts', 'src/app/components/' + folderName[i] + '/index.ts');
         }
 
         this.directory('src/app/shared', 'src/app/shared');
@@ -122,35 +125,35 @@ module.exports = generators.Base.extend({
         //We initialise the message which appears in the readme of the style folder. We give two different message
         //if sass has been installed or not.
         this.messageInReadMe = "";
-        if (this.sassValue === "yes" || this.sassValue === "y") {
-            this.messageInReadMe = "Initially, we generate two files: " +
-                "- main.scss: File Sass which defines the common part in the design of the application" +
-                "- variables.scss: Contains all css variables used for the design";
 
-            if (this.bootstrapValue === "y" || this.bootstrapValue === "yes") {
-                if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes") {
-                    this.copy('src/styles/_main-bootstrap-font.scss', 'src/styles/main.scss');
-                }
-                else {
-                    this.copy('src/styles/_main-bootstrap.scss', 'src/styles/main.scss');
-                }
-            }
-            else if (this.foundationValue === "y" || this.foundationValue === "yes") {
-                if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes") {
-                    this.copy('src/styles/_main-foundation-font.scss', 'src/styles/main.scss');
-                }
-                else {
-                    this.copy('sr/styles/_main-foundation.scss', 'src/styles/main.scss');
-                }
-                this.copy('src/app/components/home/_home-foundation.component.html', 'src/app/components/home/home.component.html');
-                this.copy('src/app/components/home/_home-foundation.component.scss', 'src/app/components/home/home.component.scss');
-                this.copy('src/app/components/header/_header-foundation.component.html', 'src/app/components/header/header.component.html');
+        this.messageInReadMe = "Initially, we generate two files: " +
+            "- main.scss: File Sass which defines the common part in the design of the application" +
+            "- variables.scss: Contains all css variables used for the design";
+
+        if (this.bootstrapValue === "y" || this.bootstrapValue === "yes") {
+            if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes") {
+                this.copy('src/styles/_main-bootstrap-font.scss', 'src/styles/main.scss');
             }
             else {
-                this.copy('src/styles/_main.scss', 'src/styles/main.scss');
+                this.copy('src/styles/_main-bootstrap.scss', 'src/styles/main.scss');
             }
-            this.copy('src/styles/_variables.scss', 'src/styles/_variables.scss');
         }
+        else if (this.foundationValue === "y" || this.foundationValue === "yes") {
+            if (this.fontAwesomeValue === "y" || this.fontAwesomeValue === "yes") {
+                this.copy('src/styles/_main-foundation-font.scss', 'src/styles/main.scss');
+            }
+            else {
+                this.copy('sr/styles/_main-foundation.scss', 'src/styles/main.scss');
+            }
+            this.copy('src/app/components/+home/_home-foundation.component.html', 'src/app/components/+home/home.component.html');
+            this.copy('src/app/components/+home/_home-foundation.component.scss', 'src/app/components/+home/home.component.scss');
+            this.copy('src/app/components/header/_header-foundation.component.html', 'src/app/components/header/header.component.html');
+        }
+        else {
+            this.copy('src/styles/_main.scss', 'src/styles/main.scss');
+        }
+        this.copy('src/styles/_variables.scss', 'src/styles/_variables.scss');
+
         this.copy('src/styles/_README.md', 'src/styles/README.md');
 
         //Copy grunt tasks

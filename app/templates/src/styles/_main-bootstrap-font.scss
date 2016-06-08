@@ -6,6 +6,6 @@ $enable-flex : true;
 
 @import 'variables';
 
-@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
-$fa-font-path : '../../../node_modules/font-awesome/fonts';
+$fa-font-path : '../../node_modules/font-awesome/fonts';

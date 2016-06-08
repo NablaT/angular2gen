@@ -3,7 +3,7 @@ import {AppComponent} from "./app.component";
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {enableProdMode} from "@angular/core";
 
-if ('<%= ENV %>' === 'prod') {
+if ('<%%= ENV %>' === 'prod') {
     enableProdMode();
 }
 

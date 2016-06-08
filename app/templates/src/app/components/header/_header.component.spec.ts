@@ -10,7 +10,7 @@ import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
 import {HeaderComponent} from "./header.component";
 
 export function main() {
-    describe('App component', () => {
+    describe('Header component', () => {
 
 
         it('should work',
@@ -28,7 +28,7 @@ export function main() {
 @Component({
     selector: 'test-cmp',
     directives: [HeaderComponent],
-    template: '<sd-app></sd-app>'
+    template: '<sd-header></sd-header>'
 })
 class TestComponent {
 }
