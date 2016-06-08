@@ -1,5 +1,5 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ *
  */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
@@ -21,8 +21,8 @@ module.exports = generators.Base.extend({
     writing: function () {
         this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.basicTemplateSrc = 'src/shared/services/src/' + this.argsInKebab;
-        this.basicTemplateTest = 'src/shared/services/test/' + this.argsInKebab;
+        this.basicTemplateSrc = 'src/app/shared/services/src/' + this.argsInKebab;
+        this.basicTemplateTest = 'src/app/shared/services/test/' + this.argsInKebab;
 
         this.copy('services/_basic-template.ts', this.basicTemplateSrc + '.service.ts');
         this.copy('services/_basic-template-test.ts', this.basicTemplateTest + '.service.spec.ts');

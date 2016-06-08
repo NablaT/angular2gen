@@ -15,8 +15,8 @@ module.exports = generators.Base.extend({
     writing: function () {
         this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.basicTemplateSrc = 'src/shared/directives/src/' + this.argsInKebab;
-        this.basicTemplateTest = 'src/shared/directives/test/' + this.argsInKebab;
+        this.basicTemplateSrc = 'src/app/shared/directives/src/' + this.argsInKebab;
+        this.basicTemplateTest = 'src/app/shared/directives/test/' + this.argsInKebab;
 
         this.copy('directives/_basic-template.ts', this.basicTemplateSrc + '.directive.ts');
         this.copy('directives/_basic-template-test.ts', this.basicTemplateTest + '.directive.spec.ts');
