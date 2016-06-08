@@ -3,7 +3,6 @@ var lodash = require('lodash');
 
 module.exports = generators.Base.extend({
 
-
     /**
      * Function askProjectName asks user the project name.
      * We store the answer in the attribute projectTitle.
@@ -188,10 +187,6 @@ module.exports = generators.Base.extend({
     install: function () {
         this.npmInstall(['gulp-cli'], {'g': true});
         this.npmInstall(); //npm install
-        //this.spawnCommand('gulp', ['serve']);
     },
 
-    /*runApp: function(){
-     this.spawnCommand('gulp', ['serve']);
-     }*/
 });
