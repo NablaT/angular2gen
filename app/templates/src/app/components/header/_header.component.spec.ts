@@ -10,19 +10,7 @@ import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
 import {HeaderComponent} from "./header.component";
 
 export function main() {
-    describe('Header component', () => {
 
-
-        it('should work',
-            inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-                tcb.createAsync(HeaderComponent)
-                    .then((rootTC:any) => {
-                        let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
-
-                        expect(getDOM().querySelectorAll(aboutDOMEl, 'h1')[0].textContent).toEqual('<%= projectTitle %>');
-                    });
-            }));
-    });
 }
 
 @Component({

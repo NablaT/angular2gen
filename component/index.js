@@ -18,43 +18,52 @@ module.exports = generators.Base.extend({
      */
     constructor: function () {
         generators.Base.apply(this, arguments);
-        this.hasArgs=true;
-        if(this.arguments.length>0){
+        this.hasArgs = true;
+        this.argsArray = [];
+        if (this.arguments.length > 0) {
             console.log('has args');
+            console.log("arguments: " + this.arguments);
+            var argumentsInString = "" + this.arguments;
+            this.argsArray = argumentsInString.split('/');
+
         }
-        else{
-            console.log("hasn't args");
-            this.args=false;
+        else {
+            console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
+            this.hasArgs = false;
         }
-        console.log("arguments: "+this.arguments);
         this.reworkArguments = lodash.camelCase(this.arguments);
         this.nameOfComponent = this.reworkArguments.charAt(0).toUpperCase() + this.reworkArguments.slice(1);
     },
 
     /**
-     * Function checkSass. This function reads the file _package.json to know if user asked to install sass.
-     */
-    checkSass: function () {
-        this.hasSass = false;
-        var jsonContent = json.readFileSync("./package.json", 'utf8');
-        var storeJson = JSON.parse(jsonContent);
-        for (var currentKey in storeJson.dependencies) {
-            if (currentKey == "gulp-sass") {
-                this.hasSass = true;
-            }
-        }
-    },
-
-    /**
      * Function writing. This function copies the basic templates for components.
-
+     */
     writing: function () {
-        this.argsInKebab = lodash.kebabCase(this.arguments);
-        this.basicTemplate = 'src/app/components/' + this.argsInKebab + '/' + this.argsInKebab;
-        this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
-        this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
-        this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
-        this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');
-    },*/
+        if (this.hasArgs) {
+            if (this.argsArray.length > 0) {
+                for (var i = 0; i < this.argsArray.length - 1; i++) {
+                    this.path = this.argsInKebab + '/' + lodash.kebabCase(this.argsArray[i]);
+                }
+                this.basicTemplate = 'src/app/components/' + this.path + '/' + lodash.kebabCase(this.argsArray[this.argsArray.length-1]);
+            }
+            else {
+                this.argsInKebab = lodash.kebabCase(this.arguments);
+                this.basicTemplate = 'src/app/components/' + this.argsInKebab + '/' + this.argsInKebab;
+            }
+            console.log("path: " + this.basicTemplate);
+            /**
+             this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
+             this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
+             this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
+             this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');**/
+        }
+        /**
+         this.argsInKebab = lodash.kebabCase(this.arguments);
+         this.basicTemplate = 'src/app/components/' + this.argsInKebab + '/' + this.argsInKebab;
+         this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
+         this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
+         this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
+         this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');**/
+    },
 
 });

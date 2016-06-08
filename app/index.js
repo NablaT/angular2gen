@@ -161,13 +161,6 @@ module.exports = generators.Base.extend({
     },
 
     /**
-     * Function installSass. This function checks if user want to install Sass, if yes it runs the installation.
-     */
-    installSass: function () {
-        this.npmInstall(['gulp-sass'], {'save': true}); //npm install gulp-sass --save
-    },
-
-    /**
      * Function installBootstrapOrFoundation. This function checks if user want to install Bootstrap or Foundation.
      * If one of those framework has been chosen, the function install it.
      */
