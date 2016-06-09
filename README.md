@@ -39,13 +39,11 @@ yo angular2gen
 
 Just after running the previous command, angular2gen will ask you the name of your project and which tools would you like to use. 
 For tools, it can install:
-- Sass 
 - Bootstrap (v4.0.0-alpha.2) or Foundation 
 - Font Awesome. 
 
 ```
 Your project name: NameOfYourfirstApp
-Would you like to use Sass ? (Y/N) Y
 Would you like to use Bootstrap ? (Y/N) N
 Would you like to use Foundation ? (Y/N) Y
 Would you like to use FontAwesome ? (Y/N) Y
@@ -64,8 +62,11 @@ When your project has been generated, you will find the following structure
  │_ index.html
  - components
     - app
+         - +about
+         - +home
+         - core
          │_ app.component.html
-         │_ app.component.scss or .css (depends on Sass installation)
+         │_ app.component.scss 
          │_ app.component.spec.ts
          │_ app.component.ts
     │_ README.md
@@ -87,6 +88,20 @@ When your project has been generated, you will find the following structure
 - manual_typings
 - typings
 ```
+
+
+#### Why do certain folders have a "+" as a prefix?
+In order to specify these folders as lazy loaded folders. Lazy loading is widespread practice which consists in loading only the files you need in your page. The "+" annotation allows you to specify which of your component should be lazy loaded. 
+For more information, you can check the [tutorial](http://blog.mgechev.com/2015/09/30/lazy-loading-components-routes-services-router-angular-2/) wrote by Minko Gechev on Lazy Loading. You can also check the [Angular 2 style guide](https://angular.io/styleguide) for more information on angular 2 guidelines.
+
+
+#### Folder core: Angular2gen library, what is it? 
+In order to assist you in angular 2 learning and in your development, we are developing a set of common component. The folder core will contain all the common component we are developing: login, logout, headers, footers, cards etc... 
+
+If you would like to participate in this library development, do not hesitate to contact us (cf. contact us part bellow) or open a pull request. 
+
+Our main goal is to create a huge set of components with tones of different design, behavior etc...
+
 
 ## Run application
 
@@ -116,7 +131,18 @@ The command will create the folder name-of-your-component in the folder componen
     │_ name-of-your-component.component.scss or css (depends on Sass installation): The css file of the component
     │_ name-of-your-component.component.spec.ts: The test file of the component 
     │_ name-of-your-component.component.ts: The component 
+    │_ index.ts: Barel of your component
 ```
+
+####What is a barel ? 
+
+A barel is a file that imports, aggregates, and re-exports items. We use them for several reason:
+- A barrel aggregates many imports into a single import.
+- A barrel reduces the number of imports a file may need.
+- A barrel provides a consistent pattern to import everything exported in the barrel from a folder.
+- This is consistent with a pattern from Node, which imports the index.js|ts file from a folder.
+- A barrel shortens import statements.
+- 
 ## Generate directives
 
 To generate a directive, run the following command in your shell:
