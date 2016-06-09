@@ -133,7 +133,6 @@ The command will create the folder name-of-your-component in the folder componen
     │_ name-of-your-component.component.ts: The component 
     │_ index.ts: Barel of your component
 ```
-
 ####What is a barel ? 
 
 A barel is a file that imports, aggregates, and re-exports items. We use them for several reason:
@@ -142,7 +141,15 @@ A barel is a file that imports, aggregates, and re-exports items. We use them fo
 - A barrel provides a consistent pattern to import everything exported in the barrel from a folder.
 - This is consistent with a pattern from Node, which imports the index.js|ts file from a folder.
 - A barrel shortens import statements.
-- 
+
+
+####Specify a destination folder 
+You can also specify a destination folder when you generate your component. For instance, if you would like to create a new component into the folder +about, you just have to run the following command: 
+
+```
+yo angular2gen:component +about/Name
+```
+
 ## Generate directives
 
 To generate a directive, run the following command in your shell:
