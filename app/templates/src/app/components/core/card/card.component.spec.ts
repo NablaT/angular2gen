@@ -1,7 +1,7 @@
 /**
  * Test Component CoreCard
  */
-import {CoreCardComponent} from "./card.component";
+import {CardComponent} from "./card.component";
 import {Component} from "@angular/core";
 @Component({
     selector: 'test-card',
