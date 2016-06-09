@@ -1,5 +1,5 @@
 /**
- * Created by rpourtier on 10/03/2016.
+ *
  */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');

@@ -21,8 +21,6 @@ module.exports = generators.Base.extend({
         this.hasArgs = true;
         this.argsArray = [];
         if (this.arguments.length > 0) {
-            console.log('has args');
-            console.log("arguments: " + this.arguments);
             var argumentsInString = "" + this.arguments;
             this.argsArray = argumentsInString.split('/');
 
@@ -55,6 +53,7 @@ module.exports = generators.Base.extend({
                     }
                 }
                 this.argsInKebab = lodash.kebabCase(this.argsArray[this.argsArray.length - 1]);
+                //this.titleComponent = this.argsArray[this.argsArray.length-1];
                 this.basicTemplate = 'src/app/components/' + this.path + '/' + this.argsInKebab;
             }
             else {

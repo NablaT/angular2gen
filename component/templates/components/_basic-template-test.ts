@@ -8,4 +8,4 @@ import {Component} from "@angular/core";
     template: '<sd-<%= argsInKebab %>></sd-<%= argsInKebab %>>',
     directives: []
 })
-class Test<%= nameOfComponent %>Component {}
+class Test<%= componentName %>Component {}

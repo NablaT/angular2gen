@@ -1,0 +1,58 @@
+@import url(//fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900);
+
+html,body { // for demo only
+  background: #FAFAFA;
+}
+
+.card {
+  font-family: 'Calibri', sans-serif;
+  overflow: hidden;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #272727;
+  border-radius: 2px;
+  .content {
+    padding: 1.3rem;
+    font-weight: 300;
+    border-radius: 0 0 2px 2px;
+  }
+  p {
+    margin: 0;
+  }
+  .action {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 1.3rem;
+  }
+  a {
+    color: #ffab40;
+    margin-right: 1.3rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .image {
+    position: relative;
+    .title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 1.3rem;
+      color: #000;
+      font-weight: bold;
+    }
+    img {
+      border-radius: 2px 2px 0 0;
+    }
+  }
+}
+
+
+.card:hover{
+  margin-top:10px;
+  margin-bottom:10px;
+  transition: margin 0.5s;
+  //transition: transform 1s;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.16), 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+
+  //transform: scale(1.02);
+  //cursor:pointer;
+}

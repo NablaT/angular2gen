@@ -10,4 +10,4 @@ import {Component} from '@angular/core';
     templateUrl: './<%= argsInKebab %>.component.html',
     styleUrls : ['./<%= argsInKebab %>.component.css']
 })
-export class <%= nameOfComponent %>Component { }
+export class <%= componentName %>Component { }

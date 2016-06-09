@@ -10,6 +10,6 @@ export class HomeComponent {
     public pathImage:string;
 
     constructor(){
-        this.pathImage="../../../../assets/picture.png";
+        this.pathImage="../../../../assets/home/picture.png";
     }
 }

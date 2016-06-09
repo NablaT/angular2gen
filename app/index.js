@@ -97,9 +97,8 @@ module.exports = generators.Base.extend({
         this.copy('src/_index.html', 'src/index.html');
         this.copy('src/_systemjs.config.js', 'src/systemjs.config.js');
 
-        this.copy('src/assets/_README.md', 'src/assets/README.md');
+        this.directory('src/assets', 'src/assets');
 
-        this.copy('src/assets/picture.png', 'src/assets/picture.png');
         //Component folder creation
         this.copy('src/app/components/_README.md', 'src/app/components/README.md');
         this.copy('src/app/_app.component.ts', 'src/app/app.component.ts');
@@ -119,6 +118,7 @@ module.exports = generators.Base.extend({
         }
 
         this.directory('src/app/shared', 'src/app/shared');
+        this.directory('src/app/components/core', 'src/app/components/core');
 
         //Styles folder and content creation
         //We initialise the message which appears in the readme of the style folder. We give two different message
@@ -144,6 +144,7 @@ module.exports = generators.Base.extend({
             else {
                 this.copy('sr/styles/_main-foundation.scss', 'src/styles/main.scss');
             }
+            this.copy('src/app/components/+about/_about-foundation.component.html', 'src/app/components/+about/about.component.html');
             this.copy('src/app/components/+home/_home-foundation.component.html', 'src/app/components/+home/home.component.html');
             this.copy('src/app/components/+home/_home-foundation.component.scss', 'src/app/components/+home/home.component.scss');
             this.copy('src/app/components/header/_header-foundation.component.html', 'src/app/components/header/header.component.html');
