@@ -1,0 +1,184 @@
+login {
+
+  $form-bg: #13232f;
+  $white: #ffffff;
+
+  $main: #1ab188;
+  $main-light: lighten($main, 5%);
+  $main-dark: darken($main, 5%);
+
+  $gray-light: #a0b3b0;
+  $gray: #ddd;
+
+  $thin: 300;
+  $normal: 400;
+  $bold: 600;
+  $br: 4px;
+
+  a {
+    text-decoration: none;
+    color: $main;
+    transition: .5s ease;
+    &:hover {
+      color: $main-dark;
+    }
+  }
+
+  .form {
+    background-color: $timeline-blue-dark;
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: $br;
+    box-shadow: 0 4px 10px 4px rgba($form-bg, .3);
+  }
+
+  .tab-group {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    li a {
+      display: block;
+      text-decoration: none;
+      padding: 15px;
+      background: rgba($gray-light, .25);
+      color: $gray-light;
+      font-size: 20px;
+      float: left;
+      width: 50%;
+      text-align: center;
+      cursor: pointer;
+      transition: .5s ease;
+      &:hover {
+        background: $main-dark;
+        color: $white;
+      }
+    }
+    .active a {
+      background: $main;
+      color: $white;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    color: $actif-color;
+    font-weight: $thin;
+    margin: 0 0 40px;
+  }
+
+  .field-wrap {
+    position: relative;
+    margin-bottom: 40px;
+
+    label {
+      position: absolute;
+      transform: translate(10px, 6px);
+      color: $other-color;
+      transition: all 0.25s ease;
+      pointer-events: none;
+      font-size: 22px;
+      .req {
+        margin: 2px;
+        color: $main;
+      }
+    }
+
+    label.active {
+      transform: translate(10px, -25px);
+      font-size: 14px;
+      color: $actif-color;
+      .req {
+        opacity: 0;
+      }
+    }
+
+    input {
+      font-size: 22px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 5px 10px;
+      background: none;
+      border: 1px solid $gray-light;
+      color: $white;
+      border-radius: 0;
+      transition: border-color .25s ease, box-shadow .25s ease;
+      &:focus {
+        outline: 0;
+        border-color: $main;
+      }
+    }
+  }
+
+  .calendar {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+
+  }
+
+  .top-row {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    > div {
+      float: left;
+      width: 48%;
+      margin-right: 4%;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: $main;
+    color: $white;
+    transition: all .5s ease;
+    -webkit-appearance: none;
+    &:hover, &:focus {
+      background: $main-dark;
+    }
+  }
+
+  .button-block {
+    display: block;
+    width: 100%;
+  }
+
+  .messagesError {
+    &.ng-enter {
+      transition: 0.5s linear all;
+      transform: translate(-10px, -10px);
+      opacity: 0;
+
+      &.ng-enter-active {
+        transform: translate(0px, 00px);
+        opacity: 1;
+      }
+    }
+  }
+
+  .errorMessage {
+    color: #ff5c0f;
+    font-size: 15px;
+  }
+
+}
