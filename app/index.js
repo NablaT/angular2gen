@@ -156,6 +156,8 @@ module.exports = generators.Base.extend({
 
         this.copy('src/styles/_README.md', 'src/styles/README.md');
 
+        this.directory("src/styles/core", "src/styles/core");
+
         //Copy grunt tasks
         this.directory("gulp", "gulp");
     },
