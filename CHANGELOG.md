@@ -9,3 +9,5 @@
       - Barrels for components
       - Convention: Prefixes "+" for lazy loaded folders
 - Add core folder into components folder. Core contains all components developed by Angular2gen community. It's a component library. 
+- Adding a test environment
+- Updating gulp tasks in order to improve the compilation and the livereloading. We implemented live reloading for your test in order to allow you to develop in tdd (test driven development).
