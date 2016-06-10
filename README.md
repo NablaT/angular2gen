@@ -135,7 +135,7 @@ The command will create the folder name-of-your-component in the folder componen
 ```
 ####What is a barel ? 
 
-A barel is a file that imports, aggregates, and re-exports items. We use them for several reason:
+A barel is a file that imports, aggregates, and re-exports items. We use them for several reasons:
 - A barrel aggregates many imports into a single import.
 - A barrel reduces the number of imports a file may need.
 - A barrel provides a consistent pattern to import everything exported in the barrel from a folder.
