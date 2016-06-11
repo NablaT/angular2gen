@@ -1,7 +1,7 @@
 /**
  * Test Component <%= nameOfComponent %>
  */
-import {<%= nameOfComponent %>Component} from "./<%= argsInKebab %>.component";
+import {<%= componentName %>Component} from "./<%= argsInKebab %>.component";
 import {Component} from "@angular/core";
 @Component({
     selector: 'test-<%= argsInKebab %>',
