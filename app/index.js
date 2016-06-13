@@ -142,7 +142,7 @@ module.exports = generators.Base.extend({
                 this.copy('src/styles/_main-foundation-font.scss', 'src/styles/main.scss');
             }
             else {
-                this.copy('sr/styles/_main-foundation.scss', 'src/styles/main.scss');
+                this.copy('src/styles/_main-foundation.scss', 'src/styles/main.scss');
             }
             this.copy('src/app/components/+about/_about-foundation.component.html', 'src/app/components/+about/about.component.html');
             this.copy('src/app/components/+home/_home-foundation.component.html', 'src/app/components/+home/home.component.html');
