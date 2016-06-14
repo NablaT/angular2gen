@@ -110,6 +110,12 @@ When the project has been generated, you can run the application with the follow
 gulp serve
 ```
 
+### Tests
+To run tests and work on TDD mode, you can run the following command right just after the one above:
+```
+gulp karma:dev
+```
+
 ## Generate components
 
 To generate a component, you just have to run the following command in your shell:
