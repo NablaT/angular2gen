@@ -8,8 +8,6 @@ const plugins = gulpLoadPlugins();
 requireDir('./gulp/tasks/dev');
 requireDir('./gulp/tasks/prod');
 
-gulp.task('karma:tdd:dev', plugins.shell.task(['start gulp karma:dev']));
-
 gulp.task('build:js:dev', (callback) => {
     runSequence('template:ts:dev', 'build:ts:dev', callback);
 });
@@ -22,7 +20,7 @@ gulp.task('build:dev', (callback) => {
 });
 
 gulp.task('serve', (callback) => {
-    runSequence('build:dev', 'server:dev', ['watch:dev', 'karma:tdd:dev'], callback);
+    runSequence('build:dev', 'server:dev', 'watch:dev', callback);
 });
 
 gulp.task('build:prod', (callback) => {
