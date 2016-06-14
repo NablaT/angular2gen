@@ -12,6 +12,6 @@ const plugins = gulpLoadPlugins();
  */
 export function template (files, destinationDirectory, mode) {
     return gulp.src(files)
-               .pipe(plugins.template({ENV: mode}))
+               .pipe(plugins.template({ENV: mode}, {interpolate : /<%=([\s\S]+?)%>/g}))
                .pipe(gulp.dest(destinationDirectory));
 }
