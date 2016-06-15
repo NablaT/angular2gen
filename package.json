@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2gen",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple way to learn Angular2 with angular2gen !",
   "license": "MIT",
   "main": "app/index.js",
