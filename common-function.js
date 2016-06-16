@@ -1,18 +1,31 @@
 /**
- * Created by rpourtier on 16/03/2016.
+ * Common function for generation
  */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
 var json = require('fs');
 
-var checkSass = function checkSass() {
-    console.log("oui bien sur");
-    this.hasSass = false;
-    var jsonContent = json.readFileSync("./_package.json", 'utf8');
-    var storeJson = JSON.parse(jsonContent);
-    for (var currentKey in storeJson.dependencies) {
-        if (currentKey == "gulp-sass") {
-            this.hasSass = true;
+
+module.exports={
+
+
+    getNumberOfArguments: function (args){
+        console.log('ouais poto, args: '+args);
+        if (this.arguments.length > 0) {
+            var argumentsInString = "" + this.arguments;
+            this.argsArray = argumentsInString.split('/');
+
         }
+        else {
+            console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
+            this.hasArgs = false;
+        }
+    },
+
+    getBackFileAndPath: function(){
+
     }
+
 }
+
+
