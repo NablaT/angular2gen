@@ -8,12 +8,15 @@ var common = require('../common-function');
 module.exports = generators.Base.extend({
 
     /**
-     * Generator constructor. It reworks the arguments.
+     * Generator constructor. Verifies the number of arguments and reworks them.
      */
     constructor: function () {
         generators.Base.apply(this, arguments);
         this.hasArgs = true;
-        common.getNumberOfArguments("CHUI UN ARG");
+
+        this.argsArray = common.getArgsInArray(this.arguments);
+        if(this.argsArray.length == 0) this.hasArgs=false;
+
         this.reworkArguments = lodash.camelCase(this.arguments);
         this.nameOfPipe= this.reworkArguments.charAt(0).toUpperCase() + this.reworkArguments.slice(1);
     },
@@ -22,15 +25,27 @@ module.exports = generators.Base.extend({
      * Function writing. This function copies the basic templates for pipes.
      */
     writing: function () {
-        this.argsInKebab = lodash.kebabCase(this.arguments);
+        if (this.hasArgs) {
+            if (this.argsArray.length > 1) {
+                this.nameOfPipe=this.argsArray[this.argsArray.length-1];
+                var pathAndArgs=common.getPathAndArgs(this.argsArray);
+                this.path= pathAndArgs[0];
+                this.argsInKebab = pathAndArgs[1];
 
-        common.getPathAndArgs()
-        /**
-        this.basicTemplateSrc = 'src/app/shared/pipes/src/' + this.argsInKebab;
-        this.basicTemplateTest = 'src/app/shared/pipes/test/' + this.argsInKebab;
+                this.basicTemplateSrc = 'src/app/shared/pipes/src/' + this.path + "/" + this.argsInKebab;
+                this.basicTemplateTest = 'src/app/shared/pipes/test/' + this.path + "/" + this.argsInKebab;
+            }
+            else{
+                this.nameOfPipe=this.arguments;
+                this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.copy('pipes/_basic-template.ts', this.basicTemplateSrc + '.pipe.ts');
-        this.copy('pipes/_basic-template-test.ts', this.basicTemplateTest + '.pipe.spec.ts');**/
+                this.basicTemplateSrc = 'src/app/shared/pipes/src/' +  this.argsInKebab;
+                this.basicTemplateTest = 'src/app/shared/pipes/test/' +  this.argsInKebab;
+            }
+            this.copy('pipes/_basic-template.ts', this.basicTemplateSrc + '.pipe.ts');
+            this.copy('pipes/_basic-template-test.ts', this.basicTemplateTest + '.pipe.spec.ts');
+        }
+
     },
 
 });
