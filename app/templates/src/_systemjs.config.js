@@ -24,14 +24,21 @@
         'router',
         'router-deprecated'
     ];
+    // Individual files (~300 requests):
+    function packIndex(pkgName) {
+        packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+    }
+    // Bundled (~40 requests):
+    function packUmd(pkgName) {
+        packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+    }
+    // Most environments should use UMD; some (Karma) need the individual index files
+    var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
     // Add package entries for angular packages
-    ngPackageNames.forEach(function (pkgName) {
-        packages['@angular/' + pkgName] = {main: pkgName + '.umd.js', defaultExtension: 'js'};
-    });
+    ngPackageNames.forEach(setPackageConfig);
     var config = {
-        defaultJSExtensions: true,
-        map                : map,
-        packages           : packages
+        map: map,
+        packages: packages
     };
     System.config(config);
 })(this);
