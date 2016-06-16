@@ -37,6 +37,7 @@
     // Add package entries for angular packages
     ngPackageNames.forEach(setPackageConfig);
     var config = {
+        defaultJSExtensions: true,
         map: map,
         packages: packages
     };
