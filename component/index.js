@@ -1,6 +1,7 @@
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
 var json = require('fs');
+var common = require('../common-function');
 
 /**
  * Component generator. While user runs the command "yo angular2project:component ComponentName",
@@ -19,16 +20,9 @@ module.exports = generators.Base.extend({
     constructor: function () {
         generators.Base.apply(this, arguments);
         this.hasArgs = true;
-        this.argsArray = [];
-        if (this.arguments.length > 0) {
-            var argumentsInString = "" + this.arguments;
-            this.argsArray = argumentsInString.split('/');
+        this.argsArray = common.getArgsInArray(this.arguments);
+        if(this.argsArray.length == 0) this.hasArgs=false;
 
-        }
-        else {
-            console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
-            this.hasArgs = false;
-        }
         this.reworkArguments = lodash.camelCase(this.arguments);
         this.nameOfComponent = this.reworkArguments.charAt(0).toUpperCase() + this.reworkArguments.slice(1);
     },
@@ -40,21 +34,11 @@ module.exports = generators.Base.extend({
         if (this.hasArgs) {
             if (this.argsArray.length > 1) {
                 this.componentName=this.argsArray[this.argsArray.length-1];
-                for (var i = 0; i < this.argsArray.length; i++) {
-                    var addAPlus = "";
-                    if (this.argsArray[i].indexOf("+") > -1) {
-                        addAPlus = "+";
-                    }
-                    if (i == 0) {
-                        this.path = addAPlus + lodash.kebabCase(this.argsArray[i]);
-                    }
-                    else {
-                        this.path = this.path + '/' + addAPlus + lodash.kebabCase(this.argsArray[i]);
-                    }
-                }
-                this.argsInKebab = lodash.kebabCase(this.argsArray[this.argsArray.length - 1]);
-                //this.titleComponent = this.argsArray[this.argsArray.length-1];
-                this.basicTemplate = 'src/app/components/' + this.path + '/' + this.argsInKebab;
+
+                var pathAndArgs=common.getPathAndArgs(this.argsArray);
+                this.path= pathAndArgs[0];
+                this.argsInKebab = pathAndArgs[1];
+                this.basicTemplate = 'src/app/components/' +this.path + '/' + this.argsInKebab;
             }
             else {
                 this.componentName=this.arguments;

@@ -6,24 +6,44 @@ var lodash = require('lodash');
 var json = require('fs');
 
 
-module.exports={
+module.exports = {
 
 
-    getNumberOfArguments: function (args){
-        console.log('ouais poto, args: '+args);
-        if (this.arguments.length > 0) {
-            var argumentsInString = "" + this.arguments;
-            this.argsArray = argumentsInString.split('/');
+    getArgsInArray: function (args) {
+        var argsArray = [];
+        if (args.length > 0) {
+            var argumentsInString = "" + args;
+            argsArray = argumentsInString.split('/');
 
         }
         else {
             console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
-            this.hasArgs = false;
         }
+        return argsArray;
     },
 
-    getBackFileAndPath: function(){
+    getPathAndArgs: function (argsArray) {
+        var path = "";
+        var argsInKebab = "";
+        var pathArgs = [];
+        this.componentName = argsArray[argsArray.length - 1];
+        for (var i = 0; i < argsArray.length; i++) {
+            var addAPlus = "";
+            if (argsArray[i].indexOf("+") > -1) {
+                addAPlus = "+";
+            }
+            if (i == 0) {
+                path = addAPlus + lodash.kebabCase(argsArray[i]);
+            }
+            else {
+                path = path + '/' + addAPlus + lodash.kebabCase(argsArray[i]);
+            }
+        }
+        argsInKebab = lodash.kebabCase(argsArray[argsArray.length - 1]);
+        pathArgs.push(path);
+        pathArgs.push(argsInKebab);
 
+        return pathArgs;
     }
 
 }

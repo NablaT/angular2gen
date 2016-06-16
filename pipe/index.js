@@ -23,6 +23,8 @@ module.exports = generators.Base.extend({
      */
     writing: function () {
         this.argsInKebab = lodash.kebabCase(this.arguments);
+
+        common.getPathAndArgs()
         /**
         this.basicTemplateSrc = 'src/app/shared/pipes/src/' + this.argsInKebab;
         this.basicTemplateTest = 'src/app/shared/pipes/test/' + this.argsInKebab;
