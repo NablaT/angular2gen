@@ -29,7 +29,6 @@ module.exports = {
         if(!haveToCreateFolder) length--;
         this.componentName = argsArray[argsArray.length - 1];
         for (var i = 0; i < length; i++) {
-            console.log('args i: '+ i+ " value: "+argsArray[i]);
             var addAPlus = "";
             if (argsArray[i].indexOf("+") > -1) {
                 addAPlus = "+";
