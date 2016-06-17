@@ -81,6 +81,11 @@ When your project has been generated, you will find the following structure
          │_ README.md
        - test
          │_ README.md
+    - pipes
+       - src
+         │_ README.md
+       - test
+         │_ README.md
     - styles
          │_ README.md
  - assets
@@ -180,7 +185,7 @@ To generate a service, run the following command in your shell:
 yo angular2gen:service Name
 ```
 
-##### The directive name will be NameService. 
+##### The service name will be NameService. 
 ##### For instance, you run yo angular2gen:service CallDataBase, the name of the class will be CallDataBaseService
 
 As for directives, services follow the same architecture with two folders: one for the sources *src* and another for the tests *test* 
@@ -190,6 +195,38 @@ As for directives, services follow the same architecture with two folders: one f
 - test 
          │_ name-of-your-service.service.spec.ts: The test file of your service
 ```
+
+## Generate pipes
+
+To generate a pipe, run the following command in your shell:
+```
+yo angular2gen:pipe Name
+```
+
+##### The pipe name will be NamePipe. 
+##### For instance, you run yo angular2gen:pipe TransformUpperCase, the name of the class will be TransformUpperCasePipe
+The previous command will generate the following files:
+```
+- src
+         │_ transform-upper-case.pipe.ts : The main file of your pipe
+- test
+         │_ transform-upper-case.pipe.spec.ts: The test file of your pipe
+```
+
+As for components, you can specify the path where you would like to create the pipe. 
+```
+yo angular2gen:pipe textTransformation/TransformUpperCase
+```
+The previous command will create the following structure:
+```
+- src
+     -textTransformation
+         │_ transform-upper-case.pipe.ts : The main file of your pipe
+- test
+     -textTransformation
+         │_ transform-upper-case.pipe.spec.ts: The test file of your pipe
+```
+
 ###Missing Functionalities 
 
 We haven't finished the generator yet. We have several missing functionalities: 
