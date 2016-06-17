@@ -173,9 +173,23 @@ yo angular2gen:directive Name
 As you have seen in the folder architecture of the generator, the folder directives has two folders: one for the sources *src* and another for the tests *test*   
 ```
 - src
-         │_ name-of-your-directive.directive.ts : The main file of your directive
+         │_ draggable.directive.ts : The main file of your directive
 - test
-         │_ name-of-your-directive.directive.spec.ts: The test file of your directive
+         │_ draggable.directive.spec.ts: The test file of your directive
+```
+
+As for components, you can specify the path where you would like to create the directive. 
+```
+yo angular2gen:pipe behaviour/Draggable
+```
+The previous command will create the following structure:
+```
+- src
+     -behaviour
+         │_ draggable.directive.ts: The main file of your directive
+- test
+     -behaviour
+         │_cdraggable.spec.ts: The test file of your directive
 ```
 
 ## Generate services
@@ -191,9 +205,23 @@ yo angular2gen:service Name
 As for directives, services follow the same architecture with two folders: one for the sources *src* and another for the tests *test* 
 ```
 - src
-         │_ name-of-your-service.service.ts : The main file of your service
+         │_ call-data-base.service.ts : The main file of your service
 - test 
-         │_ name-of-your-service.service.spec.ts: The test file of your service
+         │_ call-data-base.service.spec.ts: The test file of your service
+```
+
+As for components, you can specify the path where you would like to create the service. 
+```
+yo angular2gen:pipe userService/CallDataBase
+```
+The previous command will create the following structure:
+```
+- src
+     -userService
+         │_ call-data-base.service.ts: The main file of your service
+- test
+     -userService
+         │_call-data-base.service.spec.ts: The test file of your service
 ```
 
 ## Generate pipes
