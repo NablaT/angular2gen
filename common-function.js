@@ -14,7 +14,6 @@ module.exports = {
         if (args.length > 0) {
             var argumentsInString = "" + args;
             argsArray = argumentsInString.split('/');
-
         }
         else {
             console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
@@ -22,12 +21,15 @@ module.exports = {
         return argsArray;
     },
 
-    getPathAndArgs: function (argsArray) {
+    getPathAndArgs: function (argsArray, haveToCreateFolder) {
         var path = "";
         var argsInKebab = "";
         var pathArgs = [];
+        var length= argsArray.length;
+        if(!haveToCreateFolder) length--;
         this.componentName = argsArray[argsArray.length - 1];
-        for (var i = 0; i < argsArray.length; i++) {
+        for (var i = 0; i < length; i++) {
+            console.log('args i: '+ i+ " value: "+argsArray[i]);
             var addAPlus = "";
             if (argsArray[i].indexOf("+") > -1) {
                 addAPlus = "+";

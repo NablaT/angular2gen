@@ -28,12 +28,13 @@ module.exports = generators.Base.extend({
         if (this.hasArgs) {
             if (this.argsArray.length > 1) {
                 this.nameOfPipe=this.argsArray[this.argsArray.length-1];
-                var pathAndArgs=common.getPathAndArgs(this.argsArray);
+                var pathAndArgs=common.getPathAndArgs(this.argsArray, false);
                 this.path= pathAndArgs[0];
                 this.argsInKebab = pathAndArgs[1];
 
                 this.basicTemplateSrc = 'src/app/shared/pipes/src/' + this.path + "/" + this.argsInKebab;
                 this.basicTemplateTest = 'src/app/shared/pipes/test/' + this.path + "/" + this.argsInKebab;
+                this.pathForImport ='../../src/'+ this.path+"/"+this.argsInKebab;
             }
             else{
                 this.nameOfPipe=this.arguments;
@@ -41,6 +42,7 @@ module.exports = generators.Base.extend({
 
                 this.basicTemplateSrc = 'src/app/shared/pipes/src/' +  this.argsInKebab;
                 this.basicTemplateTest = 'src/app/shared/pipes/test/' +  this.argsInKebab;
+                this.pathForImport = '../src/'+this.argsInKebab;
             }
             this.copy('pipes/_basic-template.ts', this.basicTemplateSrc + '.pipe.ts');
             this.copy('pipes/_basic-template-test.ts', this.basicTemplateTest + '.pipe.spec.ts');

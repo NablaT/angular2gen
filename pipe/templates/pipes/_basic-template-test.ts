@@ -1,7 +1,8 @@
 /**
  * Test pipe <%= nameOfPipe %>Pipe
  */
-import { <%= nameOfPipe %>Pipe } from '../src/<%=argsInKebab%>.pipe';
+import { <%= nameOfPipe %>Pipe } from '<%=pathForImport%>.pipe';
+
 describe('<%= nameOfPipe %>Pipe', () => {
     let pipe: <%= nameOfPipe %>Pipe;
 

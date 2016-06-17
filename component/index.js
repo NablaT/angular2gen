@@ -35,7 +35,7 @@ module.exports = generators.Base.extend({
             if (this.argsArray.length > 1) {
                 this.componentName=this.argsArray[this.argsArray.length-1];
 
-                var pathAndArgs=common.getPathAndArgs(this.argsArray);
+                var pathAndArgs=common.getPathAndArgs(this.argsArray,true);
                 this.path= pathAndArgs[0];
                 this.argsInKebab = pathAndArgs[1];
                 this.basicTemplate = 'src/app/components/' +this.path + '/' + this.argsInKebab;
