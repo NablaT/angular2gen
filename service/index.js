@@ -48,14 +48,7 @@ module.exports = generators.Base.extend({
             this.copy('services/_basic-template.ts', this.basicTemplateSrc + '.service.ts');
             this.copy('services/_basic-template-test.ts', this.basicTemplateTest + '.service.spec.ts');
         }
-        /**
-        this.argsInKebab = lodash.kebabCase(this.arguments);
 
-        this.basicTemplateSrc = 'src/app/shared/services/src/' + this.argsInKebab;
-        this.basicTemplateTest = 'src/app/shared/services/test/' + this.argsInKebab;
-
-        this.copy('services/_basic-template.ts', this.basicTemplateSrc + '.service.ts');
-        this.copy('services/_basic-template-test.ts', this.basicTemplateTest + '.service.spec.ts');**/
     },
 
 });

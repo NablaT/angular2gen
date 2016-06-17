@@ -48,13 +48,6 @@ module.exports = generators.Base.extend({
             this.copy('directives/_basic-template-test.ts', this.basicTemplateTest + '.directive.spec.ts');
         }
 
-        /**this.argsInKebab = lodash.kebabCase(this.arguments);
-
-        this.basicTemplateSrc = 'src/app/shared/directives/src/' + this.argsInKebab;
-        this.basicTemplateTest = 'src/app/shared/directives/test/' + this.argsInKebab;
-
-        this.copy('directives/_basic-template.ts', this.basicTemplateSrc + '.directive.ts');
-        this.copy('directives/_basic-template-test.ts', this.basicTemplateTest + '.directive.spec.ts');*/
     },
 
 });
