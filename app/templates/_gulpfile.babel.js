@@ -34,11 +34,7 @@ gulp.task('build:prod', (callback) => {
     'karma:prod',
     'build:ts:prod',
     'clean:tests:prod',
-    ['bundles.libs.prod', 'bundles.app.prod', 'bundle:css:prod'],
+    ['bundles.libs.prod', 'bundles.app.prod', 'bundle:css:prod', 'bundle:libs:css:prod'],
     'build:index:prod',
     callback);
 });
-
-/* gulp.task('serve:prod', gulp.series('build:prod', 'server:prod', function (done) {
- done();
- }));*/
