@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import {
-    NPM_DEPENDENCIES,
+    JS_NPM_DEPENDENCIES,
     JS_PROD_LIBS_BUNDLE,
     JS_PROD_DIR
 } from '../../gulp.conf';
@@ -12,7 +12,7 @@ const plugins = gulpLoadPlugins();
  * Returns the npm dependencies to be injected
  */
 function getNpmDependencies () {
-    return NPM_DEPENDENCIES.map(dep => dep.src);
+    return JS_NPM_DEPENDENCIES.map(dep => dep.src);
 }
 
 gulp.task('bundles.libs.prod', () => {

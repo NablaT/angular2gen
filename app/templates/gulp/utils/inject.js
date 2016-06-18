@@ -10,7 +10,8 @@ import {
     JS_PROD_LIBS_BUNDLE,
     JS_PROD_APP_BUNDLE,
     CSS_PROD_DIR,
-    CSS_PROD_BUNDLE
+    CSS_PROD_BUNDLE,
+    CSS_PROD_LIBS_BUNDLE
 } from '../gulp.conf';
 
 const plugins = gulpLoadPlugins();
@@ -60,7 +61,8 @@ function injectProd (destinationDirectory, files) {
 function getProdDependencies () {
     return [path.join(JS_PROD_DIR, JS_PROD_LIBS_BUNDLE),
         path.join(JS_PROD_DIR, JS_PROD_APP_BUNDLE),
-        path.join(CSS_PROD_DIR, CSS_PROD_BUNDLE)]
+        path.join(CSS_PROD_DIR, CSS_PROD_BUNDLE),
+        path.join(CSS_PROD_DIR, CSS_PROD_LIBS_BUNDLE)]
 }
 
 /**
@@ -71,8 +73,8 @@ function getProdDependencies () {
  */
 function getInjectablesDependenciesRef (name, destinationDirectory) {
     return DEPENDENCIES
-        .filter(dep => dep['inject'] === name)
-        .map(mapPath(destinationDirectory));
+            .filter(dep => dep['inject'] === name)
+.map(mapPath(destinationDirectory));
 }
 
 /**
