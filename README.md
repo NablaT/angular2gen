@@ -255,6 +255,41 @@ The previous command will create the following structure:
          │_ transform-upper-case.pipe.spec.ts: The test file of your pipe
 ```
 
+
+## Adding Dependencies
+
+### Adding NPM Dependencies
+
+If you want to add a javascript npm dependency in your index.html, you just need to: 
+1. open the gulp.conf.js file,
+2. seek for the JS_NPM_DEPENDENCIES const
+3. add a line like this one (the inject tag can be 'libs' or 'shims'): 
+```
+{src: 'node_modules/your_module/file_to_include.js', inject: 'libs'}
+```
+
+If you want to add a css npm dependency in your index.html, you just need to: 
+1. open the gulp.conf.js file,
+2. seek for the CSS_NPM_DEPENDENCIES const
+3. add a line like this one (the inject tag can only be 'libs'): 
+```
+{src: 'node_modules/your_module/file_to_include.css', inject: 'libs'}
+```
+
+Your NPM dependencies will be automatically included in your index.html when you start the 'gulp serve' command.
+
+### Adding Project Dependencies
+
+If you want to add a javascript or css dependency of your project in your index.html, you just need to: 
+1. open the gulp.conf.js file,
+2. seek for the PROJECT_DEPENDENCIES const
+3. add a line like this one (the inject tag can only be 'project'): 
+```
+{src: 'path_to_the_file_to_be_included.(css|js)', inject: 'project'}
+```
+
+Your project dependencies will be automatically included in your index.html when you start the 'gulp serve' command.
+
 ###Missing Functionalities 
 
 We haven't finished the generator yet. We have several missing functionalities: 
