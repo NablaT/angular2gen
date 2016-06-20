@@ -30,6 +30,7 @@ export const JS_NPM_DEPENDENCIES = [
     <% if (bootstrapValue === "y" || bootstrapValue === "yes") { %>
     {src: 'node_modules/tether-1.3.1/dist/js/tether.js', inject: 'libs'},
     {src: 'node_modules/jquery/dist/jquery.js', inject: 'libs'},
+    {src: 'node_modules/bootstrap/dist/js/bootstrap.js', inject: 'libs'},
 <% } %>
     {src: 'node_modules/systemjs/dist/system.src.js', inject: 'libs'}
 ];
