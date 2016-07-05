@@ -1,7 +1,7 @@
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
 var json = require('fs');
-var common = require('../common-function');
+var common = require('./common-function');
 
 /**
  * Component generator. While user runs the command "yo angular2project:component ComponentName",

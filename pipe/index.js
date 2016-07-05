@@ -3,7 +3,7 @@
  */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
-var common = require('../common-function');
+var common = require('./common-function');
 
 module.exports = generators.Base.extend({
 
