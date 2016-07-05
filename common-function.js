@@ -6,7 +6,7 @@ var lodash = require('lodash');
 var json = require('fs');
 
 
-module.exports = generators.Base.extend({
+module.exports = {
 
 
     getArgsInArray: function (args) {
@@ -47,6 +47,6 @@ module.exports = generators.Base.extend({
         return pathArgs;
     }
 
-});
+};
 
 

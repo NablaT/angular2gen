@@ -31,7 +31,8 @@
     "component",
     "service",
     "directive",
-    "style"
+    "style",
+    "common-function"
   ],
   "dependencies": {
     "lodash": "^4.6.1",
