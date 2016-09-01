@@ -109,9 +109,11 @@ module.exports = generators.Base.extend({
         this.copy('src/app/_main.ts', 'src/app/main.ts');
         this.copy('src/app/_app.module.ts', 'src/app/app.module.ts');
         this.copy('src/app/_app.routing.ts', 'src/app/app.routing.ts');
+        this.copy('src/app/_main.ts', 'src/app/main.ts');
+
         var component = ["about", "header", "home"];
         var folderName = ["+about", "header", "+home"];
-        var that = this;
+
         for (var i = 0; i < component.length; i++) {
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.html', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.html');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.scss', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.scss');
