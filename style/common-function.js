@@ -37,7 +37,7 @@ module.exports = {
                 path = addAPlus + lodash.kebabCase(argsArray[i]);
             }
             else {
-                path = path + '/' + addAPlus + lodash.kebabCase(argsArray[i]);
+                path = path + '/' + addAPlus + lodash.kebabCase(argsArray[i]) ;
             }
         }
         argsInKebab = lodash.kebabCase(argsArray[argsArray.length - 1]);
