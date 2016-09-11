@@ -1,5 +1,6 @@
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
+const fs = require('fs');
 
 module.exports = generators.Base.extend({
 
@@ -106,14 +107,24 @@ module.exports = generators.Base.extend({
         this.copy('src/app/_app.component.html', 'src/app/app.component.html');
         this.copy('src/app/_app.component.scss', 'src/app/app.component.scss');
         this.copy('src/app/_main.ts', 'src/app/main.ts');
-        this.copy('src/app/_routeur.ts', 'src/app/router.ts');
+        this.copy('src/app/_app.module.ts', 'src/app/app.module.ts');
+        this.copy('src/app/_app.routing.ts', 'src/app/app.routing.ts');
+        this.copy('src/app/_main.ts', 'src/app/main.ts');
+
         var component = ["about", "header", "home"];
         var folderName = ["+about", "header", "+home"];
+
         for (var i = 0; i < component.length; i++) {
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.html', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.html');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.scss', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.scss');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.ts');
             this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.component.spec.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.component.spec.ts');
+            this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.module.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.module.ts');
+
+            try {
+                this.copy('src/app/components/' + folderName[i] + '/_' + component[i] + '.routing.ts', 'src/app/components/' + folderName[i] + '/' + component[i] + '.routing.ts');
+            } catch (ex) {}
+
             this.copy('src/app/components/' + folderName[i] + '/_index.ts', 'src/app/components/' + folderName[i] + '/index.ts');
         }
 
