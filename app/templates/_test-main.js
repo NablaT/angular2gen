@@ -22,65 +22,65 @@ __karma__.loaded = function () {
 
 // Load our SystemJS configuration.
 System.config({
-                  baseURL: '/base/'
-              });
+    baseURL: '/base/'
+});
 
 System.config({
-                  defaultJSExtensions: true,
-                  map                : {
-                      'app': 'app',
-                      'rxjs'    : 'node_modules/rxjs',
-                      '@angular': 'node_modules/@angular'
-                  },
-                  packages           : {
-                      '@angular/core'                    : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/compiler'                : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/common'                  : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/http'                    : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/platform-browser'        : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/platform-browser-dynamic': {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/router-deprecated'       : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      '@angular/router'                  : {
-                          main            : 'index.js',
-                          defaultExtension: 'js'
-                      },
-                      'rxjs'                             : {
-                          defaultExtension: 'js'
-                      }
-                  }
-              });
+    defaultJSExtensions: true,
+    map                : {
+        'app': 'app',
+        'rxjs'    : 'node_modules/rxjs',
+        '@angular': 'node_modules/@angular'
+    },
+    packages           : {
+        '@angular/core'                    : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/compiler'                : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/common'                  : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/forms'                  : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/http'                    : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/platform-browser'        : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/platform-browser-dynamic': {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        '@angular/router'                  : {
+            main            : 'index.js',
+            defaultExtension: 'js'
+        },
+        'rxjs'                             : {
+            defaultExtension: 'js'
+        }
+    }
+});
 
 Promise.all([
-                System.import('@angular/core/testing'),
-                System.import('@angular/platform-browser-dynamic/testing')
-            ]).then(function (providers) {
+    System.import('@angular/core/testing'),
+    System.import('@angular/platform-browser-dynamic/testing')
+]).then(function (providers) {
     debugger;
     var testing        = providers[0];
     var testingBrowser = providers[1];
 
     testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-                                 testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+        testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 }).then(function () {
     return Promise.all(
@@ -107,7 +107,7 @@ Promise.all([
 function onlySpecFiles (path) {
     // check for individual files, if not given, always matches to all
     var patternMatched = __karma__.config.files ?
-                         path.match(new RegExp(__karma__.config.files)) : true;
+        path.match(new RegExp(__karma__.config.files)) : true;
 
     return patternMatched && /[\.|_]spec\.js$/.test(path);
 }

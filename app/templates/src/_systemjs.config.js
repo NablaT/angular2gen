@@ -23,7 +23,8 @@
         'platform-browser',
         'platform-browser-dynamic',
         'router',
-        'router-deprecated'
+        'router-deprecated',
+        'testing'
     ];
     // Individual files (~300 requests):
     function packIndex(pkgName) {
