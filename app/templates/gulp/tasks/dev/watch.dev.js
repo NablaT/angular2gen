@@ -10,7 +10,7 @@ import {
 gulp.task('watch:scripts:dev', () => {
     gulp.watch(path.join(SRC_DIR, '**', '*.ts'), (event) => {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        runSequence('template:ts:dev', 'build:ts:dev');
+        runSequence('build:ts:dev');
     })
 });
 
