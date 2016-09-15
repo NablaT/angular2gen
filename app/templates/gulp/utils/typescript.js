@@ -12,7 +12,7 @@ let _tsProject = plugins.typescript.createProject('tsconfig.json', {
 
 let bs = getBrowserSync();
 
-const typings = ['typings/browser.d.ts'];
+const typings = ['typings/index.d.ts'];
 
 const INLINE_OPTIONS = {
     base            : TEMPLATE_DIR,
