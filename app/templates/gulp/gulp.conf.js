@@ -24,15 +24,17 @@ export const JS_PROD_DIR          = path.join(PROD_DIR, 'js');
 export const CSS_PROD_DIR         = path.join(PROD_DIR, 'css');
 
 export const JS_NPM_DEPENDENCIES = [
+        // Angular dependencies needed.
     {src: 'node_modules/core-js/client/shim.min.js', inject: 'shims'},
     {src: 'node_modules/zone.js/dist/zone.js', inject: 'libs'},
     {src: 'node_modules/reflect-metadata/Reflect.js', inject: 'libs'},
+    {src: 'node_modules/systemjs/dist/system.src.js', inject: 'libs'},
     <% if (bootstrapValue === "y" || bootstrapValue === "yes") { %>
+    // Non Angular dependencies
     {src: 'node_modules/tether-1.3.1/dist/js/tether.js', inject: 'libs'},
     {src: 'node_modules/jquery/dist/jquery.js', inject: 'libs'},
-    {src: 'node_modules/bootstrap/dist/js/bootstrap.js', inject: 'libs'},
+    {src: 'node_modules/bootstrap/dist/js/bootstrap.js', inject: 'libs'}
 <% } %>
-    {src: 'node_modules/systemjs/dist/system.src.js', inject: 'libs'}
 ];
 
 export const CSS_NPM_DEPENDENCIES = [
