@@ -87,7 +87,7 @@ module.exports = generators.Base.extend({
         this.basicTemplate = 'src/components/' + lodash.kebabCase(this.projectTitle);
 
         this.copy('_package.json', 'package.json');
-        this.copy('_test-main.js', 'test-main.js');
+        this.copy('_karma-test-shim.js', 'karma-test-shim.js');
         this.copy('_.babelrc', '.babelrc');
         this.copy('_readme.md', 'readme.md');
         this.copy('_.gitignore', '.gitignore');
