@@ -31,7 +31,7 @@ export function typescript (filesArray, destinationDirectory, enableProdMode = f
     let ENV = enableProdMode ? 'prod' : 'dev';
 
     var result = gulp.src(typings.concat(filesArray))
-                     .pipe(plugins.template({ENV: ENV}, {interpolate : /<%=([\s\S]+?)%>/g}))
+                     .pipe(plugins.template({ENV: ENV}, {interpolate : /<%%=([\s\S]+?)%>/g}))
                      .pipe(plugins.if(!enableProdMode, plugins.sourcemaps.init()))
                      .pipe(plugins.if(enableProdMode, plugins.inlineNg2Template(INLINE_OPTIONS)))
                      .pipe(plugins.typescript(_tsProject));
