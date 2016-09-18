@@ -12,66 +12,78 @@ const Server = karmaServer.Server;
 export function karma (destinationDirectory, singleRun, done) {
 
     // This is to specifies files that need coverage dynamically.
-    var filesCoverage                                       = {};
+    let filesCoverage                                       = {};
     filesCoverage[destinationDirectory + '/**/!(*spec).js'] = ['coverage'];
 
+    let appBase    = destinationDirectory + '/app/';       // transpiled app JS and map files
+    let appSrcBase = 'src/app/';       // app source TS files
+    let appAssets  = '/base/' + destinationDirectory + '/app/'; // component assets fetched by Angular's compiler
+
     new Server({
-        basePath  : './',
+        basePath  : '',
         frameworks: ['jasmine'],
-        reporters : ['mocha', 'coverage'],
+        plugins  : [
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-mocha-reporter',
+            'karma-coverage'
+        ],
+        reporters : [
+            'mocha', 
+            'coverage'
+        ],
         files     : [
-
-            // Polyfills.
-            'node_modules/core-js/client/shim.min.js',
-
-            'node_modules/reflect-metadata/Reflect.js',
-
             // System.js for module loading
-            'node_modules/systemjs/dist/system-polyfills.js',
             'node_modules/systemjs/dist/system.src.js',
 
-            // Zone.js dependencies
+            // Polyfills
+            'node_modules/core-js/client/shim.js',
+            'node_modules/reflect-metadata/Reflect.js',
+
+            // zone.js
             'node_modules/zone.js/dist/zone.js',
+            'node_modules/zone.js/dist/long-stack-trace-zone.js',
+            'node_modules/zone.js/dist/proxy.js',
+            'node_modules/zone.js/dist/sync-test.js',
             'node_modules/zone.js/dist/jasmine-patch.js',
             'node_modules/zone.js/dist/async-test.js',
             'node_modules/zone.js/dist/fake-async-test.js',
 
-            // RxJs.
-            {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
-            {pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false},
+            // RxJs
+            { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+            { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
 
-            // paths loaded via module imports
+            // Paths loaded via module imports:
             // Angular itself
-            {pattern: 'node_modules/@angular/**/*.js', included: false, watched: true},
+            {pattern: 'node_modules/@angular/**/*.js', included: false, watched: false},
+            {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false},
 
-            // suppress annoying 404 warnings for map
-            {pattern: 'node_modules/**/*.js.map', included: false, watched: false},
+            {pattern: 'src/systemjs.config.js', included: false, watched: false},
+            'karma-test-shim.js',
 
-            {pattern: destinationDirectory + '/**/*.js', included: false, watched: true},
+            // transpiled application & spec code paths loaded via module imports
+            {pattern: appBase + '**/*.js', included: false, watched: true},
 
-            // PhantomJS2 (and possibly others) might require it
-            {pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false},
 
-            // Shim for systemjs import in karma.
-            'test-main.js',
+            // Asset (HTML & CSS) paths loaded via Angular's component compiler
+            // (these paths need to be rewritten, see proxies section)
+            {pattern: appBase + '**/*.html', included: false, watched: true},
+            {pattern: appBase + '**/*.css', included: false, watched: true},
 
-            // paths to support debugging with source maps in dev tools
-            {pattern: 'src/**/*.ts', included: false, watched: false},
-            {pattern: destinationDirectory + '/**/*.js.map', included: false, watched: false},
+            // Paths for debugging with source maps in dev tools
+            {pattern: appSrcBase + '**/*.ts', included: false, watched: false},
+            {pattern: appBase + '**/*.js.map', included: false, watched: false},
 
-            {pattern: destinationDirectory + '/**/*.html', included: false, watched: true},
-            {pattern: destinationDirectory + '/**/*.css', included: false, watched: true}
         ],
+        // Proxied base paths for loading assets
+        proxies: {
+            // required for component assets fetched by Angular's compiler
+            "/app/": appAssets
+        },
 
         singleRun: singleRun,
         autoWatch: !singleRun,
-        browsers : ['PhantomJS'], //, 'IE' can be used too.
-        plugins  : [
-            'karma-jasmine',
-            'karma-phantomjs-launcher',
-            'karma-mocha-reporter',
-            'karma-coverage'
-        ],
+        browsers : ['Chrome'], //, 'IE' can be used too.
 
         preprocessors: filesCoverage,
 
