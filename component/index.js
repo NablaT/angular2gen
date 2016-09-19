@@ -48,6 +48,8 @@ module.exports = generators.Base.extend({
             }
             this.copy('components/_basic-template.html', this.basicTemplate + '.component.html');
             this.copy('components/_basic-template.ts', this.basicTemplate + '.component.ts');
+            this.copy('components/_basic-template.module.ts', this.basicTemplate + '.module.ts');
+            this.copy('components/_basic-template.routing.ts', this.basicTemplate + '.routing.ts');
             this.copy('components/_basic-template.css', this.basicTemplate + '.component.scss');
             this.copy('components/_basic-template-test.ts', this.basicTemplate + '.component.spec.ts');
             this.copy('components/_index.ts', 'src/app/components/' +this.path + '/index.ts');

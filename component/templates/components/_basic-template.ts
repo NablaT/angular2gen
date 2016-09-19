@@ -1,6 +1,6 @@
 /**
  * Component <%= nameOfComponent %>Component
- */
+*/
 
 import {Component} from '@angular/core';
 
