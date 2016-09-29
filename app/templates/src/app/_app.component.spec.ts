@@ -1,34 +1,43 @@
-import {TestComponentBuilder} from "@angular/compiler/testing";
-import {Component} from "@angular/core";
-import {
-    describe,
-    expect,
-    it,
-    inject
-} from "@angular/core/testing";
-import {getDOM} from "@angular/platform-browser/src/dom/dom_adapter";
-import {AppComponent} from "./app.component";
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Route } from '@angular/router';
 
-export function main() {
-    describe('App component', () => {
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/+home/home.component';
+import { AboutComponent } from './components/+about/about.component';
 
+let comp:    AppComponent;
+let fixture: ComponentFixture<AppComponent>;
+let el:      DebugElement;
 
-        it('should work',
-            inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-                tcb.createAsync(AppComponent)
-                    .then((rootTC:any) => {
-                        let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
+describe('AppComponent', () => {
 
-                        expect(getDOM().querySelectorAll(aboutDOMEl, 'h1')[0].textContent).toEqual('My First Angular 2 App');
-                    });
-            }));
+    let config: Route[] = [
+      { path: '', component: HomeComponent },
+      { path: 'about', component: AboutComponent }
+    ];
+
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [RouterTestingModule.withRoutes(config)],
+            declarations: [ AppComponent, HomeComponent, AboutComponent ],
+        })
+        .compileComponents() // compile template and css
+        .then( 
+            () => {
+                // create component and test fixture
+                fixture = TestBed.createComponent(AppComponent);
+
+                // get test component from the fixture
+                comp = fixture.componentInstance;
+            }
+        );
+    }));
+
+    it('can instantiate it', () => {
+        expect(comp).not.toBeNull();
     });
-}
 
-@Component({
-    selector: 'test-cmp',
-    directives: [AppComponent],
-    template: '<sd-app></sd-app>'
-})
-class TestComponent {
-}
+});

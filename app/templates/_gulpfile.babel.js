@@ -8,13 +8,9 @@ const plugins = gulpLoadPlugins();
 requireDir('./gulp/tasks/dev');
 requireDir('./gulp/tasks/prod');
 
-gulp.task('build:js:dev', (callback) => {
-    runSequence('template:ts:dev', 'build:ts:dev', callback);
-});
-
 gulp.task('build:dev', (callback) => {
     runSequence('clean:dev',
-    ['build:assets:dev', 'build:html:dev', 'build:sass:dev', 'build:js:dev', 'copy:systemjs:dev'],
+    ['build:assets:dev', 'build:html:dev', 'build:sass:dev', 'build:ts:dev', 'copy:systemjs:dev'],
 'build:index:dev',
     callback);
 });

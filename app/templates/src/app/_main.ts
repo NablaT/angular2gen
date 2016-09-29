@@ -1,12 +1,22 @@
-import {bootstrap} from "@angular/platform-browser-dynamic";
-import {AppComponent} from "./app.component";
-import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
+/**
+ * The browser platform without a compiler
+ */
+import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
 import {enableProdMode} from "@angular/core";
 
-if ('<%%= ENV %>' === 'prod') {
+/**
+ * The app module
+ */
+import {AppModule} from "./app.module";
+
+let ENV:string = '<%%= ENV %>';
+let PROD:string = 'prod';
+if (ENV === PROD) {
     enableProdMode();
 }
 
-bootstrap(AppComponent, [
-    ROUTER_PROVIDERS
-]);
+/**
+ * Compile and launch the module
+ */
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);

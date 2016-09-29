@@ -12,7 +12,7 @@ let _tsProject = plugins.typescript.createProject('tsconfig.json', {
 
 let bs = getBrowserSync();
 
-const typings = ['typings/browser.d.ts'];
+const typings = ['typings/index.d.ts'];
 
 const INLINE_OPTIONS = {
     base            : TEMPLATE_DIR,
@@ -28,7 +28,10 @@ const INLINE_OPTIONS = {
  * @param {boolean} enableProdMode - A boolean to define if we are in production or not.
  */
 export function typescript (filesArray, destinationDirectory, enableProdMode = false) {
+    let ENV = enableProdMode ? 'prod' : 'dev';
+
     var result = gulp.src(typings.concat(filesArray))
+                     .pipe(plugins.template({ENV: ENV}, {interpolate : /<%%=([\s\S]+?)%>/g}))
                      .pipe(plugins.if(!enableProdMode, plugins.sourcemaps.init()))
                      .pipe(plugins.if(enableProdMode, plugins.inlineNg2Template(INLINE_OPTIONS)))
                      .pipe(plugins.typescript(_tsProject));
