@@ -12,4 +12,4 @@ export class HomeComponent {
     constructor(){
         this.pathImage="../../../../assets/home/picture.png";
     }
-}
+}   
