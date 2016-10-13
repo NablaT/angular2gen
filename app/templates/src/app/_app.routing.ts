@@ -19,7 +19,7 @@ import { HomeRoutes } from './components/+home/index';
  * v2: import an existing route: ...HomeRoutes
  *
  * Here we would rather import route files and define the routes in each route file than define everything
- * here in app.routing.ts. In the future, it will be easier to maintain our routes with imported routes.
+ * here in app.ro   9uting.ts. In the future, it will be easier to maintain our routes with imported routes.
  */
 const appRoutes: Routes = [
     ...HomeRoutes,
