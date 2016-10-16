@@ -3,8 +3,9 @@
  */
 var generators = require('yeoman-generator');
 var lodash = require('lodash');
-var json = require('fs');
+var fs = require('fs');
 
+var globalTabPath="./src/app/main-content/"
 
 module.exports = {
 
@@ -16,9 +17,26 @@ module.exports = {
             argsArray = argumentsInString.split('/');
         }
         else {
-            console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
+            console.log("Please specify the name of your section in camel case. Eg: MyFirstSection");
         }
         return argsArray;
+    },
+
+    tabExists:function(tabName){
+        try {
+            // Query the entry
+            stats = fs.lstatSync(globalTabPath+""+tabName);
+
+            // Is it a directory?
+            if (stats.isDirectory()) {
+                // Yes it is
+                return true;
+            }
+        }
+        catch (e) {
+            // ...
+        }
+        return false;
     },
 
     getPathAndArgs: function (argsArray, haveToCreateFolder) {

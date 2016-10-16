@@ -16,7 +16,7 @@ module.exports = {
             argsArray = argumentsInString.split('/');
         }
         else {
-            console.log("Please specify the name of your component in camel case. Eg: MyFirstItem");
+            console.log("Please specify the name of your Tab in camel case. Eg: MyFirstTab");
         }
         return argsArray;
     },
