@@ -1,4 +1,7 @@
 # angular2gen
+
+This project is no longer supported. Use angular-cli instead
+
 # Build your Angular2 app from a simple basis 
 
 Do you want to learn Angular 2 ? Do you want to build an Angular 2 application from a simple basis ? Do you need an assistance in your development ? Angular2gen has been made for you!<br/>
